@@ -1,0 +1,26 @@
+body {
+font-family: Arial, sans-serif;
+background: #f4f7f5;
+color: #17221b;
+}
+
+h1 {
+color: #0d5c3b;
+}
+
+.calculadora {
+max-width: 800px;
+margin: 40px auto;
+padding: 30px;
+background: white;
+border-radius: 15px;
+}
+
+button {
+background: #0d5c3b;
+color: white;
+padding: 15px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+}

@@ -1,0 +1,6027 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="FinanCalc: calculadoras financieras gratuitas de inversiones, préstamos, hipotecas, ahorro, inflación y presupuesto.">
+
+<meta name="keywords" content="calculadora financiera, interés compuesto, calculadora de préstamos, calculadora de hipoteca, calculadora de ahorro, inflación, presupuesto 50 30 20">
+
+<meta name="author" content="FinanCalc">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://TU-DOMINIO.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="FinanCalc | Calculadoras financieras gratuitas">
+<meta property="og:description" content="Calcula inversiones, préstamos, hipotecas, ahorro, inflación y presupuesto.">
+<meta property="og:url" content="https://TU-DOMINIO.com/">
+<meta property="og:site_name" content="FinanCalc">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FinanCalc | Calculadoras financieras">
+<meta name="twitter:description" content="Herramientas financieras simples y gratuitas.">
+
+<title>FinanCalc | Calculadoras financieras gratuitas</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FinanCalc",
+  "url": "https://TU-DOMINIO.com/",
+  "description": "Calculadoras financieras gratuitas para inversiones, préstamos, hipotecas, ahorro e inflación.",
+  "inLanguage": "es"
+}
+</script>
+
+<style>
+
+/* ======================================================
+   RESET Y VARIABLES
+====================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --verde: #0d5c3b;
+    --verde-oscuro: #073b28;
+    --verde-claro: #38a169;
+    --verde-suave: #edf7f1;
+
+    --fondo: #f4f7f5;
+    --texto: #17221b;
+    --gris: #65736b;
+    --borde: #dce5df;
+    --blanco: #ffffff;
+
+    --azul: #3182ce;
+    --azul-oscuro: #2563a5;
+
+    --amarillo: #f6c344;
+    --rojo: #c53030;
+
+    --sombra:
+        0 12px 45px rgba(22, 55, 38, 0.10);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(56, 161, 105, 0.08),
+            transparent 35%
+        ),
+        var(--fondo);
+
+    color: var(--texto);
+
+    line-height: 1.5;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+select,
+input {
+    font: inherit;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+header {
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    min-height: 72px;
+
+    padding:
+        0 6%;
+
+    background: var(--verde);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 22px;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.12);
+}
+
+.logo {
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    letter-spacing: -0.8px;
+}
+
+.logo span {
+
+    color: #8de0b1;
+
+    text-shadow:
+        0 0 18px
+        rgba(141,224,177,0.25);
+}
+
+.menu {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex: 1;
+}
+
+.menu a {
+
+    position: relative;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    padding: 10px 5px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+
+    white-space: nowrap;
+}
+
+.menu a:hover {
+
+    color: #8de0b1;
+
+    transform:
+        translateY(-1px);
+}
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    right: 5px;
+
+    bottom: 2px;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: #8de0b1;
+
+    transform: scaleX(0);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.menu a:hover::after {
+
+    transform:
+        scaleX(1);
+}
+
+/* ======================================================
+   MONEDA
+====================================================== */
+
+.moneda {
+
+    padding:
+        10px 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.10);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.moneda:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,0.14);
+}
+
+/* ======================================================
+   MODO OSCURO
+====================================================== */
+
+.modo-oscuro {
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--texto);
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        0.2s;
+}
+
+.modo-oscuro:hover {
+
+    background: #e8f5ed;
+
+    transform:
+        translateY(-1px)
+        scale(1.05);
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+
+    position: relative;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding:
+        90px 20px 60px;
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(56,161,105,0.08);
+
+    filter:
+        blur(70px);
+
+    top: 10px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+.hero > * {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.etiqueta {
+
+    display: inline-block;
+
+    padding:
+        7px 15px;
+
+    margin-bottom: 18px;
+
+    background:
+        #dff5e8;
+
+    color:
+        var(--verde);
+
+    border-radius:
+        50px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    border:
+        1px solid
+        rgba(56,161,105,0.15);
+
+    box-shadow:
+        0 5px 18px
+        rgba(56,161,105,0.08);
+}
+
+.hero h1 {
+
+    font-size:
+        clamp(36px, 6vw, 58px);
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -2px;
+
+    margin-bottom:
+        20px;
+
+    font-weight:
+        850;
+}
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+}
+
+.hero p {
+
+    max-width:
+        700px;
+
+    margin:
+        auto;
+
+    color:
+        var(--gris);
+
+    font-size:
+        19px;
+}
+
+/* ======================================================
+   CONTENEDOR
+====================================================== */
+
+.contenedor {
+
+    width:
+        100%;
+
+    max-width:
+        1080px;
+
+    margin:
+        auto;
+
+    padding:
+        0 20px;
+}
+
+/* ======================================================
+   PUBLICIDAD
+====================================================== */
+
+.anuncio {
+
+    width:
+        100%;
+
+    min-height:
+        90px;
+
+    margin:
+        20px 0 35px;
+
+    border:
+        1px dashed
+        var(--borde);
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #8a968f;
+
+    font-size:
+        11px;
+
+    text-align:
+        center;
+
+    opacity:
+        0.9;
+}
+
+.anuncio small {
+    opacity:
+        0.8;
+}
+
+/* ======================================================
+   CALCULADORAS
+====================================================== */
+
+.calculadora {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        white;
+
+    padding:
+        35px;
+
+    margin-bottom:
+        35px;
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        var(--sombra);
+
+    scroll-margin-top:
+        95px;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.calculadora::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    height:
+        4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+}
+
+.titulo-calculadora {
+
+    margin-bottom:
+        30px;
+}
+
+.titulo-calculadora h2 {
+
+    color:
+        var(--verde);
+
+    font-size:
+        25px;
+
+    margin-bottom:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.3px;
+}
+
+.titulo-calculadora p {
+
+    color:
+        var(--gris);
+
+    font-size:
+        15px;
+}
+
+/* ======================================================
+   FORMULARIOS
+====================================================== */
+
+.formulario {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        20px;
+}
+
+.campo {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+}
+
+.campo label {
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+}
+
+.campo input {
+
+    width:
+        100%;
+
+    padding:
+        15px;
+
+    border:
+        1px solid
+        var(--borde);
+
+    border-radius:
+        11px;
+
+    background:
+        #fbfdfc;
+
+    color:
+        var(--texto);
+
+    font-size:
+        16px;
+
+    box-shadow:
+        inset 0 1px 2px
+        rgba(0,0,0,0.025);
+
+    transition:
+        0.2s;
+}
+
+.campo input:hover {
+
+    border-color:
+        #bfd2c7;
+}
+
+.campo input:focus {
+
+    outline:
+        none;
+
+    border-color:
+        var(--verde-claro);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(56,161,105,0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+.campo small {
+
+    margin-top:
+        6px;
+
+    color:
+        #849088;
+
+    font-size:
+        12px;
+}
+
+button {
+
+    grid-column:
+        1 / -1;
+
+    padding:
+        16px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    color:
+        white;
+
+    font-size:
+        17px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(13,92,59,0.16);
+
+    transition:
+        0.2s;
+}
+
+button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde-oscuro),
+            var(--verde)
+        );
+
+    box-shadow:
+        0 12px 25px
+        rgba(13,92,59,0.22);
+
+    transform:
+        translateY(-2px);
+}
+
+/* ======================================================
+   RESULTADOS
+====================================================== */
+
+.resultados {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        15px;
+
+    margin-top:
+        35px;
+}
+
+.inversion-resultados {
+
+    grid-template-columns:
+        repeat(4, 1fr);
+}
+
+.resultado {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        23px;
+
+    background:
+        var(--verde-suave);
+
+    border:
+        1px solid
+        #dcefe3;
+
+    border-radius:
+        15px;
+
+    transition:
+        0.3s;
+}
+
+.resultado:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+.resultado::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        70px;
+
+    height:
+        70px;
+
+    right:
+        -28px;
+
+    top:
+        -28px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(56,161,105,0.08);
+}
+
+.icono {
+
+    font-size:
+        23px;
+
+    margin-bottom:
+        12px;
+}
+
+.resultado span {
+
+    display:
+        block;
+
+    color:
+        var(--gris);
+
+    font-size:
+        13px;
+
+    margin-bottom:
+        8px;
+}
+
+.resultado strong {
+
+    display:
+        block;
+
+    color:
+        var(--verde);
+
+    font-size:
+        24px;
+
+    letter-spacing:
+        -0.5px;
+}
+
+/* ======================================================
+   GRÁFICA
+====================================================== */
+
+.grafica-contenedor {
+
+    margin-top:
+        40px;
+
+    padding:
+        28px;
+
+    background:
+        #f8faf9;
+
+    border:
+        1px solid
+        #e3ebe6;
+
+    border-radius:
+        17px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.5);
+}
+
+.grafica-cabecera {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        20px;
+}
+
+.grafica-titulo h2 {
+
+    color:
+        var(--verde);
+
+    font-size:
+        21px;
+}
+
+.grafica-titulo p {
+
+    color:
+        var(--gris);
+
+    font-size:
+        13px;
+
+    margin-top:
+        5px;
+}
+
+.leyenda {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+}
+
+.leyenda-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    color:
+        var(--gris);
+
+    font-size:
+        12px;
+}
+
+.punto-verde,
+.punto-azul {
+
+    width:
+        10px;
+
+    height:
+        10px;
+
+    border-radius:
+        50%;
+}
+
+.punto-verde {
+    background:
+        var(--verde-claro);
+}
+
+.punto-azul {
+    background:
+        var(--azul);
+}
+
+/* RESUMEN DE GRÁFICA */
+
+.grafica-resumen {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        10px;
+
+    margin-bottom:
+        20px;
+}
+
+.grafica-dato {
+
+    padding:
+        12px 14px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--borde);
+
+    border-radius:
+        11px;
+
+    transition:
+        0.2s;
+}
+
+.grafica-dato:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 6px 18px
+        rgba(22,55,38,0.08);
+}
+
+.grafica-dato span {
+
+    display:
+        block;
+
+    font-size:
+        11px;
+
+    color:
+        var(--gris);
+
+    margin-bottom:
+        4px;
+}
+
+.grafica-dato strong {
+
+    font-size:
+        15px;
+
+    color:
+        var(--verde);
+}
+
+/* GRÁFICA */
+
+.grafica {
+
+    position:
+        relative;
+
+    height:
+        390px;
+
+    padding:
+        30px 15px 60px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    gap:
+        14px;
+
+    overflow-x:
+        auto;
+
+    overflow-y:
+        hidden;
+
+    border-bottom:
+        2px solid
+        #cbd8d0;
+
+    border-radius:
+        12px;
+
+    background:
+        repeating-linear-gradient(
+            to top,
+            transparent 0,
+            transparent 69px,
+            #e6eee9 70px
+        );
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        var(--verde-claro)
+        #edf2ef;
+}
+
+.grafica::-webkit-scrollbar {
+    height:
+        8px;
+}
+
+.grafica::-webkit-scrollbar-track {
+
+    background:
+        #edf2ef;
+
+    border-radius:
+        10px;
+}
+
+.grafica::-webkit-scrollbar-thumb {
+
+    background:
+        var(--verde-claro);
+
+    border-radius:
+        10px;
+}
+
+.barra-grupo {
+
+    min-width:
+        68px;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
+    gap:
+        5px;
+
+    position:
+        relative;
+
+    flex-shrink:
+        0;
+}
+
+.barra {
+
+    width:
+        25px;
+
+    min-height:
+        4px;
+
+    border-radius:
+        6px 6px 0 0;
+
+    position:
+        relative;
+
+    transform-origin:
+        bottom;
+
+    animation:
+        aparecerBarra
+        0.75s ease forwards;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,0.08);
+}
+
+.barra:nth-child(2) {
+
+    animation-delay:
+        0.08s;
+}
+
+@keyframes aparecerBarra {
+
+    from {
+
+        transform:
+            scaleY(0);
+
+        opacity:
+            0;
+    }
+
+    to {
+
+        transform:
+            scaleY(1);
+
+        opacity:
+            1;
+    }
+}
+
+.barra:hover {
+
+    transform:
+        translateY(-6px)
+        scaleX(1.08);
+
+    filter:
+        brightness(1.08);
+}
+
+.barra.inversion {
+
+    background:
+        linear-gradient(
+            to top,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    box-shadow:
+        0 5px 14px
+        rgba(13,92,59,0.20);
+}
+
+.barra.aportado {
+
+    background:
+        linear-gradient(
+            to top,
+            var(--azul-oscuro),
+            var(--azul)
+        );
+
+    box-shadow:
+        0 5px 14px
+        rgba(49,130,206,0.18);
+}
+
+.valor-barra {
+
+    position:
+        absolute;
+
+    top:
+        -29px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        4px 7px;
+
+    background:
+        #17221b;
+
+    color:
+        white;
+
+    border-radius:
+        6px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        bold;
+
+    white-space:
+        nowrap;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.2s ease;
+
+    z-index:
+        10;
+}
+
+.barra:hover .valor-barra {
+
+    opacity:
+        1;
+}
+
+.barra-label {
+
+    position:
+        absolute;
+
+    bottom:
+        -42px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        var(--gris);
+
+    font-size:
+        11px;
+
+    font-weight:
+        bold;
+
+    white-space:
+        nowrap;
+}
+
+.mensaje-grafica {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--gris);
+
+    text-align:
+        center;
+
+    font-size:
+        14px;
+}
+
+/* ======================================================
+   PROGRESO META
+====================================================== */
+
+.progreso-contenedor {
+
+    margin-top:
+        25px;
+
+    padding:
+        22px;
+
+    background:
+        #f8faf9;
+
+    border:
+        1px solid
+        #e3ebe6;
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.5);
+}
+
+.progreso-cabecera {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        10px;
+}
+
+.progreso-cabecera span {
+
+    font-size:
+        13px;
+
+    color:
+        var(--gris);
+}
+
+.progreso-cabecera strong {
+
+    color:
+        var(--verde);
+}
+
+.progreso-barra {
+
+    width:
+        100%;
+
+    height:
+        13px;
+
+    border-radius:
+        20px;
+
+    background:
+        #e0e8e3;
+
+    overflow:
+        hidden;
+}
+
+.progreso-barra-interna {
+
+    height:
+        100%;
+
+    width:
+        0;
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            #55c98a
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(56,161,105,0.22);
+
+    transition:
+        width 0.8s ease;
+}
+
+/* ======================================================
+   INFO
+====================================================== */
+
+.info {
+
+    padding:
+        35px 0 55px;
+}
+
+.info h2 {
+
+    text-align:
+        center;
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        28px;
+}
+
+.info-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+}
+
+.info-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        white;
+
+    padding:
+        25px;
+
+    border-radius:
+        16px;
+
+    border:
+        1px solid
+        var(--borde);
+
+    transition:
+        0.25s;
+}
+
+.info-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        var(--sombra);
+}
+
+.info-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.info-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+.info-card .emoji {
+
+    display:
+        inline-flex;
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        14px;
+
+    background:
+        var(--verde-suave);
+
+    font-size:
+        27px;
+}
+
+.info-card h3 {
+
+    margin:
+        12px 0 8px;
+}
+
+.info-card p {
+
+    color:
+        var(--gris);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+/* ======================================================
+   CONTENIDO SEO
+====================================================== */
+
+.contenido {
+
+    background:
+        white;
+
+    border-radius:
+        20px;
+
+    padding:
+        35px;
+
+    margin-bottom:
+        35px;
+
+    border:
+        1px solid
+        var(--borde);
+
+    box-shadow:
+        0 8px 30px
+        rgba(22,55,38,0.05);
+}
+
+.contenido h2 {
+
+    color:
+        var(--verde);
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        27px;
+
+    letter-spacing:
+        -0.5px;
+}
+
+.contenido h3 {
+
+    margin-top:
+        25px;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        19px;
+}
+
+.contenido p {
+
+    color:
+        var(--gris);
+
+    margin-bottom:
+        12px;
+}
+
+.contenido ul {
+
+    padding-left:
+        22px;
+
+    color:
+        var(--gris);
+}
+
+.contenido li {
+
+    margin-bottom:
+        7px;
+}
+
+/* ======================================================
+   FAQ
+====================================================== */
+
+.faq {
+
+    margin-bottom:
+        45px;
+}
+
+.faq h2 {
+
+    text-align:
+        center;
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        25px;
+}
+
+.faq-item {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--borde);
+
+    border-radius:
+        13px;
+
+    margin-bottom:
+        10px;
+
+    overflow:
+        hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 22px
+        rgba(22,55,38,0.07);
+}
+
+.faq-item summary {
+
+    cursor:
+        pointer;
+
+    padding:
+        18px 20px;
+
+    font-weight:
+        bold;
+
+    list-style:
+        none;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display:
+        none;
+}
+
+.faq-item summary::after {
+
+    content:
+        "+";
+
+    color:
+        var(--verde);
+
+    font-size:
+        22px;
+
+    font-weight:
+        normal;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+
+    content:
+        "−";
+}
+
+.faq-item p {
+
+    padding:
+        0 20px 18px;
+
+    color:
+        var(--gris);
+}
+
+/* ======================================================
+   AVISO
+====================================================== */
+
+.aviso {
+
+    background:
+        #fff8df;
+
+    border:
+        1px solid
+        #f0d477;
+
+    color:
+        #594a19;
+
+    padding:
+        18px;
+
+    border-radius:
+        13px;
+
+    margin-bottom:
+        35px;
+
+    font-size:
+        13px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(120,90,10,0.06);
+}
+
+/* ======================================================
+   COMPARTIR
+====================================================== */
+
+.compartir {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+
+    margin:
+        30px 0 10px;
+}
+
+.btn-secundario {
+
+    padding:
+        11px 16px;
+
+    background:
+        white;
+
+    color:
+        var(--verde);
+
+    border:
+        1px solid
+        var(--borde);
+
+    font-size:
+        13px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.btn-secundario:hover {
+
+    background:
+        var(--verde-suave);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 6px 18px
+        rgba(22,55,38,0.08);
+}
+
+/* ======================================================
+   LEGAL
+====================================================== */
+
+.legal {
+
+    padding:
+        25px 0 70px;
+}
+
+.legal-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        15px;
+}
+
+.legal-card {
+
+    background:
+        white;
+
+    padding:
+        22px;
+
+    border-radius:
+        14px;
+
+    border:
+        1px solid
+        var(--borde);
+}
+
+.legal-card h3 {
+
+    margin-bottom:
+        10px;
+}
+
+.legal-card p {
+
+    color:
+        var(--gris);
+
+    font-size:
+        13px;
+}
+
+/* ======================================================
+   COOKIE
+====================================================== */
+
+.cookie-banner {
+
+    position:
+        fixed;
+
+    left:
+        20px;
+
+    right:
+        20px;
+
+    bottom:
+        20px;
+
+    z-index:
+        2000;
+
+    max-width:
+        850px;
+
+    margin:
+        auto;
+
+    padding:
+        18px;
+
+    background:
+        #17221b;
+
+    color:
+        white;
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        0 12px 40px
+        rgba(0,0,0,0.25);
+
+    display:
+        none;
+}
+
+.cookie-banner p {
+
+    font-size:
+        13px;
+
+    color:
+        #d7e1db;
+
+    margin-bottom:
+        12px;
+}
+
+.cookie-botones {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+}
+
+.cookie-botones button {
+
+    grid-column:
+        auto;
+
+    padding:
+        10px 16px;
+
+    font-size:
+        13px;
+}
+
+.cookie-aceptar {
+
+    background:
+        var(--verde-claro);
+}
+
+.cookie-rechazar {
+
+    background:
+        #39463f;
+}
+
+/* ======================================================
+   BOTÓN ARRIBA
+====================================================== */
+
+#arriba {
+
+    position:
+        fixed;
+
+    right:
+        20px;
+
+    bottom:
+        20px;
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    color:
+        white;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    z-index:
+        1500;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#arriba:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(13,92,59,0.24);
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--verde-oscuro);
+
+    color:
+        #c7ded2;
+
+    text-align:
+        center;
+
+    padding:
+        35px 20px;
+}
+
+footer::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        -100px;
+
+    width:
+        350px;
+
+    height:
+        200px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(56,161,105,0.08);
+
+    filter:
+        blur(65px);
+}
+
+footer > * {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+footer strong {
+
+    color:
+        white;
+
+    font-size:
+        20px;
+}
+
+footer p {
+
+    margin-top:
+        7px;
+
+    font-size:
+        13px;
+}
+
+.footer-links {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+
+    margin-top:
+        18px;
+}
+
+.footer-links a {
+
+    color:
+        #c7ded2;
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+}
+
+.footer-links a:hover {
+
+    color:
+        white;
+}
+
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+
+.calculadora,
+.info-card,
+.contenido,
+.faq-item {
+
+    animation:
+        aparecer
+        0.55s ease both;
+}
+
+@keyframes aparecer {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* ======================================================
+   MODO OSCURO
+====================================================== */
+
+body.modo-oscuro-activo {
+
+    --fondo:
+        #0d1511;
+
+    --texto:
+        #f1f5f2;
+
+    --gris:
+        #a8b5ae;
+
+    --borde:
+        #293a31;
+
+    --verde-suave:
+        #14271e;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(56,161,105,0.08),
+            transparent 32%
+        ),
+        #0d1511;
+
+    color:
+        #f1f5f2;
+}
+
+body.modo-oscuro-activo .hero h1 {
+
+    color:
+        #f1f5f2;
+}
+
+body.modo-oscuro-activo .hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #55c98a,
+            #8de0b1
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+}
+
+body.modo-oscuro-activo .hero p {
+
+    color:
+        #a8b5ae;
+}
+
+body.modo-oscuro-activo .etiqueta {
+
+    background:
+        #163c2a;
+
+    color:
+        #8de0b1;
+}
+
+body.modo-oscuro-activo .calculadora,
+body.modo-oscuro-activo .contenido,
+body.modo-oscuro-activo .info-card,
+body.modo-oscuro-activo .legal-card,
+body.modo-oscuro-activo .faq-item {
+
+    background:
+        #142019;
+
+    border-color:
+        #293a31;
+}
+
+body.modo-oscuro-activo .titulo-calculadora h2,
+body.modo-oscuro-activo .grafica-titulo h2,
+body.modo-oscuro-activo .contenido h2 {
+
+    color:
+        #55c98a;
+}
+
+body.modo-oscuro-activo .campo input {
+
+    background:
+        #0d1511;
+
+    color:
+        #f1f5f2;
+
+    border-color:
+        #30453a;
+}
+
+body.modo-oscuro-activo .campo input::placeholder {
+
+    color:
+        #68776f;
+}
+
+body.modo-oscuro-activo .resultado {
+
+    background:
+        #142f23;
+
+    border-color:
+        #28513d;
+}
+
+body.modo-oscuro-activo .resultado strong {
+
+    color:
+        #55c98a;
+}
+
+body.modo-oscuro-activo .grafica-contenedor,
+body.modo-oscuro-activo .progreso-contenedor {
+
+    background:
+        #101b16;
+
+    border-color:
+        #293a31;
+}
+
+body.modo-oscuro-activo .grafica {
+
+    border-bottom-color:
+        #3a4b42;
+
+    background:
+        repeating-linear-gradient(
+            to top,
+            transparent 0,
+            transparent 69px,
+            #26352e 70px
+        );
+}
+
+body.modo-oscuro-activo .grafica-dato {
+
+    background:
+        #142019;
+
+    border-color:
+        #293a31;
+}
+
+body.modo-oscuro-activo .anuncio {
+
+    background:
+        #101b16;
+
+    border-color:
+        #293a31;
+}
+
+body.modo-oscuro-activo .btn-secundario {
+
+    background:
+        #142019;
+
+    color:
+        #8de0b1;
+
+    border-color:
+        #30453a;
+}
+
+body.modo-oscuro-activo .info-card .emoji {
+
+    background:
+        #173225;
+}
+
+body.modo-oscuro-activo .resultado::after {
+
+    background:
+        rgba(85,201,138,0.08);
+}
+
+body.modo-oscuro-activo .progreso-barra {
+
+    background:
+        #24342c;
+}
+
+body.modo-oscuro-activo .moneda,
+body.modo-oscuro-activo .modo-oscuro {
+
+    background:
+        #000000;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid
+        #3b4a42;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 1000px) {
+
+    .menu {
+
+        gap:
+            14px;
+    }
+
+    .menu a {
+
+        font-size:
+            12px;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    header {
+
+        padding:
+            15px 20px;
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            12px;
+    }
+
+    .menu {
+
+        order:
+            3;
+
+        width:
+            100%;
+
+        flex:
+            none;
+
+        gap:
+            15px;
+
+        overflow-x:
+            auto;
+
+        justify-content:
+            flex-start;
+
+        padding-bottom:
+            3px;
+
+        scrollbar-width:
+            none;
+    }
+
+    .menu::-webkit-scrollbar {
+        display:
+            none;
+    }
+
+    .resultados,
+    .inversion-resultados {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .info-grid,
+    .legal-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .grafica-cabecera {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+    .hero {
+
+        padding-top:
+            65px;
+
+        padding-bottom:
+            40px;
+    }
+
+    .hero h1 {
+
+        letter-spacing:
+            -1.5px;
+    }
+
+    .calculadora {
+
+        border-radius:
+            19px;
+    }
+
+    .grafica-contenedor {
+
+        padding:
+            20px 15px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .calculadora,
+    .contenido {
+
+        padding:
+            23px;
+    }
+
+    .formulario {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    button {
+
+        grid-column:
+            1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .grafica {
+
+        height:
+            330px;
+
+        padding-left:
+            10px;
+
+        padding-right:
+            10px;
+
+        gap:
+            10px;
+    }
+
+    .barra-grupo {
+
+        min-width:
+            52px;
+    }
+
+    .barra {
+
+        width:
+            19px;
+    }
+
+    .barra-label {
+
+        font-size:
+            9px;
+    }
+
+    .grafica-resumen {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .resultados,
+    .inversion-resultados {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header {
+
+        padding:
+            12px 14px;
+    }
+
+    .logo {
+
+        font-size:
+            23px;
+    }
+
+    .moneda {
+
+        font-size:
+            12px;
+
+        padding:
+            9px 8px;
+    }
+
+    .modo-oscuro {
+
+        width:
+            40px;
+
+        height:
+            40px;
+    }
+
+    .hero {
+
+        padding-left:
+            15px;
+
+        padding-right:
+            15px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            35px;
+
+        line-height:
+            1.08;
+    }
+
+    .hero p {
+
+        font-size:
+            16px;
+    }
+
+    .calculadora,
+    .contenido {
+
+        padding:
+            20px 16px;
+
+        border-radius:
+            17px;
+    }
+
+    .resultado {
+
+        padding:
+            20px;
+    }
+
+    .resultado strong {
+
+        font-size:
+            22px;
+    }
+
+    .cookie-banner {
+
+        left:
+            10px;
+
+        right:
+            10px;
+
+        bottom:
+            10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+        Finan<span>Calc</span>
+    </div>
+
+    <nav
+        class="menu"
+        aria-label="Navegación principal"
+    >
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#inversiones">
+            Inversiones
+        </a>
+
+        <a href="#prestamos">
+            Préstamos
+        </a>
+
+        <a href="#hipoteca">
+            Hipoteca
+        </a>
+
+        <a href="#ahorro">
+            Ahorro
+        </a>
+
+        <a href="#inflacion">
+            Inflación
+        </a>
+
+        <a href="#presupuesto">
+            50/30/20
+        </a>
+
+        <a href="#faq">
+            FAQ
+        </a>
+
+    </nav>
+
+    <select
+        id="moneda"
+        class="moneda"
+        aria-label="Seleccionar moneda"
+    >
+
+        <option value="$">
+            🇺🇸 USD $
+        </option>
+
+        <option value="€">
+            🇪🇺 EUR €
+        </option>
+
+        <option value="₡">
+            🇨🇷 CRC ₡
+        </option>
+
+        <option value="£">
+            🇬🇧 GBP £
+        </option>
+
+        <option value="MX$">
+            🇲🇽 MXN $
+        </option>
+
+    </select>
+
+    <button
+        id="modoOscuro"
+        class="modo-oscuro"
+        type="button"
+        aria-label="Cambiar modo de color"
+        title="Cambiar modo de color"
+    >
+        🌙
+    </button>
+
+</header>
+
+<!-- ====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+    <div class="etiqueta">
+        💰 Herramientas financieras gratuitas
+    </div>
+
+    <h1>
+
+        Haz que tu
+
+        <span>
+            dinero trabaje
+        </span>
+
+        para ti.
+
+    </h1>
+
+    <p>
+
+        Calcula inversiones, préstamos, hipotecas,
+        ahorro e inflación de forma sencilla
+        y comprende mejor tus finanzas.
+
+    </p>
+
+</section>
+
+<div class="contenedor">
+
+<!-- ====================================================
+     ANUNCIO
+===================================================== -->
+
+<div
+    class="anuncio"
+    aria-label="Espacio publicitario"
+>
+
+    <small>
+        Espacio publicitario
+    </small>
+
+</div>
+
+<!-- ====================================================
+     INVERSIÓN
+===================================================== -->
+
+<main
+    class="calculadora"
+    id="inversiones"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            📈 Calculadora de interés compuesto
+        </h2>
+
+        <p>
+            Descubre cuánto podría crecer tu inversión
+            con aportes mensuales.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="inicial">
+                Inversión inicial
+            </label>
+
+            <input
+                type="number"
+                id="inicial"
+                placeholder="1000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Cantidad inicial
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="mensual">
+                Aporte mensual
+            </label>
+
+            <input
+                type="number"
+                id="mensual"
+                placeholder="100"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Aporte cada mes
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="tasa">
+                Tasa anual (%)
+            </label>
+
+            <input
+                type="number"
+                id="tasa"
+                placeholder="8"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Rendimiento anual estimado
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="anos">
+                Tiempo (años)
+            </label>
+
+            <input
+                type="number"
+                id="anos"
+                placeholder="10"
+                min="1"
+                step="1"
+                inputmode="numeric"
+            >
+
+            <small>
+                Tiempo de inversión
+            </small>
+
+        </div>
+
+        <button
+            id="calcular"
+            type="button"
+        >
+            Calcular crecimiento →
+        </button>
+
+    </div>
+
+    <div class="resultados inversion-resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                💰
+            </div>
+
+            <span>
+                Dinero final
+            </span>
+
+            <strong id="resultado">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                💵
+            </div>
+
+            <span>
+                Total aportado
+            </span>
+
+            <strong id="aportado">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📈
+            </div>
+
+            <span>
+                Intereses ganados
+            </span>
+
+            <strong id="intereses">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                🚀
+            </div>
+
+            <span>
+                Ganancia sobre lo aportado
+            </span>
+
+            <strong id="porcentajeGanancia">
+                0.00%
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="grafica-contenedor">
+
+        <div class="grafica-cabecera">
+
+            <div class="grafica-titulo">
+
+                <h2>
+                    📊 Crecimiento de tu inversión
+                </h2>
+
+                <p>
+                    Compara el dinero que aportas
+                    con el valor acumulado.
+                </p>
+
+            </div>
+
+            <div class="leyenda">
+
+                <div class="leyenda-item">
+
+                    <div class="punto-verde"></div>
+
+                    Valor acumulado
+
+                </div>
+
+                <div class="leyenda-item">
+
+                    <div class="punto-azul"></div>
+
+                    Total aportado
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="grafica-resumen">
+
+            <div class="grafica-dato">
+
+                <span>
+                    Valor final
+                </span>
+
+                <strong id="graficaFinal">
+                    $0.00
+                </strong>
+
+            </div>
+
+            <div class="grafica-dato">
+
+                <span>
+                    Total aportado
+                </span>
+
+                <strong id="graficaAportado">
+                    $0.00
+                </strong>
+
+            </div>
+
+            <div class="grafica-dato">
+
+                <span>
+                    Intereses
+                </span>
+
+                <strong id="graficaIntereses">
+                    $0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+        <div
+            id="grafica"
+            class="grafica"
+        >
+
+            <div class="mensaje-grafica">
+
+                Introduce tus datos y pulsa
+                "Calcular crecimiento".
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ====================================================
+     ANUNCIO
+===================================================== -->
+
+<div
+    class="anuncio"
+    aria-label="Espacio publicitario"
+>
+
+    <small>
+        Espacio publicitario
+    </small>
+
+</div>
+
+<!-- ====================================================
+     PRÉSTAMOS
+===================================================== -->
+
+<section
+    class="calculadora"
+    id="prestamos"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            💳 Calculadora de préstamos
+        </h2>
+
+        <p>
+            Calcula tu pago mensual, el total que pagarás
+            y cuánto pagarás en intereses.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="montoPrestamo">
+                Monto del préstamo
+            </label>
+
+            <input
+                type="number"
+                id="montoPrestamo"
+                placeholder="10000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Cantidad que deseas pedir prestada
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="tasaPrestamo">
+                Tasa anual (%)
+            </label>
+
+            <input
+                type="number"
+                id="tasaPrestamo"
+                placeholder="8"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Interés anual del préstamo
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="anosPrestamo">
+                Plazo (años)
+            </label>
+
+            <input
+                type="number"
+                id="anosPrestamo"
+                placeholder="5"
+                min="1"
+                step="1"
+                inputmode="numeric"
+            >
+
+            <small>
+                Tiempo para pagar
+            </small>
+
+        </div>
+
+        <button
+            id="calcularPrestamo"
+            type="button"
+        >
+            Calcular préstamo →
+        </button>
+
+    </div>
+
+    <div class="resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                💳
+            </div>
+
+            <span>
+                Pago mensual
+            </span>
+
+            <strong id="pagoMensual">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                💰
+            </div>
+
+            <span>
+                Total pagado
+            </span>
+
+            <strong id="totalPagado">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📈
+            </div>
+
+            <span>
+                Intereses totales
+            </span>
+
+            <strong id="interesesPrestamo">
+                $0.00
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     HIPOTECA
+===================================================== -->
+
+<section
+    class="calculadora"
+    id="hipoteca"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            🏠 Calculadora de hipoteca
+        </h2>
+
+        <p>
+            Calcula el pago mensual de tu vivienda
+            y el costo total de la hipoteca.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="precioCasa">
+                Precio de la vivienda
+            </label>
+
+            <input
+                type="number"
+                id="precioCasa"
+                placeholder="200000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Precio total de la vivienda
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="enganche">
+                Enganche
+            </label>
+
+            <input
+                type="number"
+                id="enganche"
+                placeholder="40000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Cantidad pagada inicialmente
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="tasaHipoteca">
+                Tasa anual (%)
+            </label>
+
+            <input
+                type="number"
+                id="tasaHipoteca"
+                placeholder="7"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Interés anual
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="anosHipoteca">
+                Plazo (años)
+            </label>
+
+            <input
+                type="number"
+                id="anosHipoteca"
+                placeholder="30"
+                min="1"
+                step="1"
+                inputmode="numeric"
+            >
+
+            <small>
+                Tiempo para pagar
+            </small>
+
+        </div>
+
+        <button
+            id="calcularHipoteca"
+            type="button"
+        >
+            Calcular hipoteca →
+        </button>
+
+    </div>
+
+    <div class="resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                🏠
+            </div>
+
+            <span>
+                Pago mensual
+            </span>
+
+            <strong id="pagoHipoteca">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                💰
+            </div>
+
+            <span>
+                Total pagado
+            </span>
+
+            <strong id="totalHipoteca">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📈
+            </div>
+
+            <span>
+                Intereses totales
+            </span>
+
+            <strong id="interesesHipoteca">
+                $0.00
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     ANUNCIO
+===================================================== -->
+
+<div
+    class="anuncio"
+    aria-label="Espacio publicitario"
+>
+
+    <small>
+        Espacio publicitario
+    </small>
+
+</div>
+
+<!-- ====================================================
+     AHORRO
+===================================================== -->
+
+<section
+    class="calculadora"
+    id="ahorro"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            🎯 Calculadora de ahorro para una meta
+        </h2>
+
+        <p>
+            Descubre cuánto tiempo podrías necesitar
+            para alcanzar una meta de ahorro.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="ahorroInicial">
+                Ahorro actual
+            </label>
+
+            <input
+                type="number"
+                id="ahorroInicial"
+                placeholder="1000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Dinero que ya tienes ahorrado
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="metaAhorro">
+                Meta de ahorro
+            </label>
+
+            <input
+                type="number"
+                id="metaAhorro"
+                placeholder="10000"
+                min="1"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Cantidad que quieres alcanzar
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="aporteAhorro">
+                Aporte mensual
+            </label>
+
+            <input
+                type="number"
+                id="aporteAhorro"
+                placeholder="300"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Cantidad que ahorrarás cada mes
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="tasaAhorro">
+                Tasa anual (%)
+            </label>
+
+            <input
+                type="number"
+                id="tasaAhorro"
+                placeholder="4"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Rendimiento anual estimado
+            </small>
+
+        </div>
+
+        <button
+            id="calcularAhorro"
+            type="button"
+        >
+            Calcular meta →
+        </button>
+
+    </div>
+
+    <div class="resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                🎯
+            </div>
+
+            <span>
+                Tiempo estimado
+            </span>
+
+            <strong id="tiempoAhorro">
+                0 meses
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                💰
+            </div>
+
+            <span>
+                Total aportado
+            </span>
+
+            <strong id="totalAhorro">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📈
+            </div>
+
+            <span>
+                Intereses estimados
+            </span>
+
+            <strong id="interesesAhorro">
+                $0.00
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="progreso-contenedor">
+
+        <div class="progreso-cabecera">
+
+            <span>
+                Progreso hacia tu meta
+            </span>
+
+            <strong id="porcentajeMeta">
+                0%
+            </strong>
+
+        </div>
+
+        <div class="progreso-barra">
+
+            <div
+                id="barraMeta"
+                class="progreso-barra-interna"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     INFLACIÓN
+===================================================== -->
+
+<section
+    class="calculadora"
+    id="inflacion"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            📉 Calculadora de inflación
+        </h2>
+
+        <p>
+            Estima cuánto podría necesitar tu dinero
+            en el futuro para mantener el mismo poder adquisitivo.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="dineroInflacion">
+                Cantidad actual
+            </label>
+
+            <input
+                type="number"
+                id="dineroInflacion"
+                placeholder="10000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Valor actual del dinero
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="tasaInflacion">
+                Inflación anual (%)
+            </label>
+
+            <input
+                type="number"
+                id="tasaInflacion"
+                placeholder="3"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Inflación anual estimada
+            </small>
+
+        </div>
+
+        <div class="campo">
+
+            <label for="anosInflacion">
+                Tiempo (años)
+            </label>
+
+            <input
+                type="number"
+                id="anosInflacion"
+                placeholder="10"
+                min="1"
+                step="1"
+                inputmode="numeric"
+            >
+
+            <small>
+                Años en el futuro
+            </small>
+
+        </div>
+
+        <button
+            id="calcularInflacion"
+            type="button"
+        >
+            Calcular inflación →
+        </button>
+
+    </div>
+
+    <div class="resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                💵
+            </div>
+
+            <span>
+                Valor futuro necesario
+            </span>
+
+            <strong id="valorFuturoInflacion">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📉
+            </div>
+
+            <span>
+                Aumento estimado
+            </span>
+
+            <strong id="perdidaInflacion">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                📊
+            </div>
+
+            <span>
+                Factor acumulado
+            </span>
+
+            <strong id="factorInflacion">
+                0.00x
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     PRESUPUESTO 50/30/20
+===================================================== -->
+
+<section
+    class="calculadora"
+    id="presupuesto"
+>
+
+    <div class="titulo-calculadora">
+
+        <h2>
+            📊 Calculadora de presupuesto 50/30/20
+        </h2>
+
+        <p>
+            Divide tus ingresos mensuales entre
+            necesidades, deseos y ahorro.
+        </p>
+
+    </div>
+
+    <div class="formulario">
+
+        <div class="campo">
+
+            <label for="ingresoMensual">
+                Ingreso mensual
+            </label>
+
+            <input
+                type="number"
+                id="ingresoMensual"
+                placeholder="1500"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <small>
+                Ingreso mensual después de impuestos
+            </small>
+
+        </div>
+
+        <button
+            id="calcularPresupuesto"
+            type="button"
+        >
+            Calcular presupuesto →
+        </button>
+
+    </div>
+
+    <div class="resultados">
+
+        <div class="resultado">
+
+            <div class="icono">
+                🏠
+            </div>
+
+            <span>
+                Necesidades · 50%
+            </span>
+
+            <strong id="necesidades">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                🛍️
+            </div>
+
+            <span>
+                Deseos · 30%
+            </span>
+
+            <strong id="deseos">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="resultado">
+
+            <div class="icono">
+                💰
+            </div>
+
+            <span>
+                Ahorro · 20%
+            </span>
+
+            <strong id="ahorroPresupuesto">
+                $0.00
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     ANUNCIO
+===================================================== -->
+
+<div
+    class="anuncio"
+    aria-label="Espacio publicitario"
+>
+
+    <small>
+        Espacio publicitario
+    </small>
+
+</div>
+
+<!-- ====================================================
+     POR QUÉ USAR FINANCALC
+===================================================== -->
+
+<section class="info">
+
+    <h2>
+        ¿Por qué usar FinanCalc?
+    </h2>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="emoji">
+                ⚡
+            </div>
+
+            <h3>
+                Rápido y sencillo
+            </h3>
+
+            <p>
+                Introduce tus datos y obtén
+                resultados en segundos.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="emoji">
+                📊
+            </div>
+
+            <h3>
+                Visualiza tus resultados
+            </h3>
+
+            <p>
+                Comprende mejor cómo puede evolucionar
+                tu dinero a través del tiempo.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="emoji">
+                🌎
+            </div>
+
+            <h3>
+                Varias monedas
+            </h3>
+
+            <p>
+                Elige entre USD, EUR, CRC, GBP y MXN.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================
+     CONTENIDO SEO
+===================================================== -->
+
+<section
+    class="contenido"
+    id="contenido"
+>
+
+    <h2>
+        Aprende a utilizar nuestras calculadoras financieras
+    </h2>
+
+    <p>
+        FinanCalc reúne herramientas sencillas para ayudarte
+        a entender algunos conceptos básicos de finanzas personales.
+        Puedes utilizar nuestras calculadoras para hacer estimaciones
+        sobre inversiones, préstamos, hipotecas, ahorro e inflación.
+    </p>
+
+    <h3>
+        ¿Qué es el interés compuesto?
+    </h3>
+
+    <p>
+        El interés compuesto ocurre cuando los rendimientos obtenidos
+        se incorporan al capital y posteriormente también generan
+        rendimientos. Con el paso del tiempo, este efecto puede
+        aumentar significativamente el crecimiento de una inversión.
+    </p>
+
+    <h3>
+        ¿Cómo funciona una calculadora de préstamos?
+    </h3>
+
+    <p>
+        La calculadora estima el pago periódico utilizando el monto
+        solicitado, la tasa anual y el plazo. También muestra una
+        estimación del total pagado y de los intereses.
+    </p>
+
+    <h3>
+        ¿Cómo funciona una calculadora de hipoteca?
+    </h3>
+
+    <p>
+        Primero se resta el enganche del precio de la vivienda para
+        determinar el monto financiado. Después se estima el pago
+        mensual utilizando la tasa y el plazo seleccionados.
+    </p>
+
+    <h3>
+        ¿Cómo funciona la calculadora de ahorro?
+    </h3>
+
+    <p>
+        Esta herramienta estima cuánto tiempo puede tomar alcanzar
+        una meta considerando el ahorro inicial, los aportes mensuales
+        y una posible tasa de rendimiento.
+    </p>
+
+    <h3>
+        ¿Qué muestra la calculadora de inflación?
+    </h3>
+
+    <p>
+        Permite estimar cuánto dinero podría ser necesario en el futuro
+        para comprar una cantidad equivalente de bienes y servicios,
+        utilizando una tasa anual de inflación estimada.
+    </p>
+
+    <h3>
+        Consejos para utilizar estas herramientas
+    </h3>
+
+    <ul>
+
+        <li>
+            Compara diferentes tasas de interés.
+        </li>
+
+        <li>
+            Prueba diferentes plazos.
+        </li>
+
+        <li>
+            Observa cuánto representan los intereses.
+        </li>
+
+        <li>
+            Compara diferentes niveles de ahorro mensual.
+        </li>
+
+        <li>
+            No tomes una decisión financiera únicamente
+            basándote en una calculadora.
+        </li>
+
+    </ul>
+
+</section>
+
+<!-- ====================================================
+     AVISO
+===================================================== -->
+
+<div class="aviso">
+
+    <strong>
+        ⚠️ Importante:
+    </strong>
+
+    Las cifras mostradas por FinanCalc son estimaciones
+    con fines informativos y educativos. Los resultados reales
+    pueden variar según las condiciones de cada banco,
+    inversión, préstamo, impuestos, comisiones y otros factores.
+
+    FinanCalc no proporciona asesoramiento financiero,
+    de inversión, legal ni fiscal.
+
+</div>
+
+<!-- ====================================================
+     FAQ
+===================================================== -->
+
+<section
+    class="faq"
+    id="faq"
+>
+
+    <h2>
+        Preguntas frecuentes
+    </h2>
+
+    <details class="faq-item">
+
+        <summary>
+            ¿Las calculadoras son gratuitas?
+        </summary>
+
+        <p>
+            Sí. Las herramientas principales de FinanCalc
+            están diseñadas para utilizarse gratuitamente.
+        </p>
+
+    </details>
+
+    <details class="faq-item">
+
+        <summary>
+            ¿Los resultados son exactos?
+        </summary>
+
+        <p>
+            Son estimaciones matemáticas. Las condiciones reales
+            pueden cambiar debido a comisiones, impuestos,
+            variaciones de tasas y políticas de cada institución.
+        </p>
+
+    </details>
+
+    <details class="faq-item">
+
+        <summary>
+            ¿Puedo cambiar la moneda?
+        </summary>
+
+        <p>
+            Sí. Puedes seleccionar USD, EUR, CRC, GBP o MXN
+            desde el selector ubicado en la parte superior.
+        </p>
+
+    </details>
+
+    <details class="faq-item">
+
+        <summary>
+            ¿Puedo utilizar las calculadoras desde el celular?
+        </summary>
+
+        <p>
+            Sí. FinanCalc está diseñado para adaptarse
+            a teléfonos, tabletas y computadoras.
+        </p>
+
+    </details>
+
+    <details class="faq-item">
+
+        <summary>
+            ¿FinanCalc guarda mis datos financieros?
+        </summary>
+
+        <p>
+            Los cálculos se realizan directamente en tu navegador.
+            FinanCalc no necesita que introduzcas información bancaria
+            para utilizar estas calculadoras.
+        </p>
+
+    </details>
+
+</section>
+
+<!-- ====================================================
+     COMPARTIR
+===================================================== -->
+
+<div class="compartir">
+
+    <button
+        type="button"
+        class="btn-secundario"
+        id="compartir"
+    >
+        📤 Compartir FinanCalc
+    </button>
+
+    <button
+        type="button"
+        class="btn-secundario"
+        id="copiarEnlace"
+    >
+        🔗 Copiar enlace
+    </button>
+
+</div>
+
+<!-- ====================================================
+     LEGAL
+===================================================== -->
+
+<section
+    class="legal"
+    id="legal"
+>
+
+    <div class="legal-grid">
+
+        <div
+            class="legal-card"
+            id="privacidad"
+        >
+
+            <h3>
+                🔒 Política de privacidad
+            </h3>
+
+            <p>
+                FinanCalc utiliza información técnica básica
+                necesaria para el funcionamiento del sitio.
+                Las calculadoras realizan sus operaciones
+                directamente en el navegador.
+            </p>
+
+        </div>
+
+        <div
+            class="legal-card"
+            id="cookies"
+        >
+
+            <h3>
+                🍪 Cookies
+            </h3>
+
+            <p>
+                Este sitio puede utilizar almacenamiento local
+                y, posteriormente, servicios de terceros como
+                publicidad o analítica. Dichos servicios pueden
+                utilizar cookies u otras tecnologías similares.
+            </p>
+
+        </div>
+
+        <div
+            class="legal-card"
+            id="aviso-legal"
+        >
+
+            <h3>
+                📄 Aviso legal
+            </h3>
+
+            <p>
+                FinanCalc ofrece herramientas informativas.
+                El contenido no constituye asesoramiento financiero,
+                de inversión, legal o fiscal.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+<!-- ====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        FinanCalc
+    </strong>
+
+    <p>
+        Herramientas financieras simples para tomar mejores decisiones.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#privacidad">
+            Privacidad
+        </a>
+
+        <a href="#cookies">
+            Cookies
+        </a>
+
+        <a href="#aviso-legal">
+            Aviso legal
+        </a>
+
+        <a href="#faq">
+            FAQ
+        </a>
+
+    </div>
+
+</footer>
+
+<!-- ====================================================
+     BOTÓN ARRIBA
+===================================================== -->
+
+<button
+    id="arriba"
+    type="button"
+    aria-label="Volver arriba"
+    title="Volver arriba"
+>
+    ↑
+</button>
+
+<!-- ====================================================
+     COOKIE BANNER
+===================================================== -->
+
+<div
+    id="cookieBanner"
+    class="cookie-banner"
+    role="dialog"
+    aria-label="Aviso de cookies"
+>
+
+    <p>
+        Utilizamos almacenamiento local para recordar algunas
+        preferencias. Si posteriormente incorporamos publicidad
+        o analítica de terceros, pueden utilizarse cookies según
+        sus respectivas políticas.
+    </p>
+
+    <div class="cookie-botones">
+
+        <button
+            type="button"
+            id="aceptarCookies"
+            class="cookie-aceptar"
+        >
+            Aceptar
+        </button>
+
+        <button
+            type="button"
+            id="rechazarCookies"
+            class="cookie-rechazar"
+        >
+            Rechazar
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ======================================================
+   ELEMENTOS
+====================================================== */
+
+const boton =
+    document.getElementById("calcular");
+
+const botonPrestamo =
+    document.getElementById("calcularPrestamo");
+
+const botonHipoteca =
+    document.getElementById("calcularHipoteca");
+
+const botonAhorro =
+    document.getElementById("calcularAhorro");
+
+const botonInflacion =
+    document.getElementById("calcularInflacion");
+
+const botonPresupuesto =
+    document.getElementById("calcularPresupuesto");
+
+const moneda =
+    document.getElementById("moneda");
+
+const botonModoOscuro =
+    document.getElementById("modoOscuro");
+
+const botonArriba =
+    document.getElementById("arriba");
+
+const cookieBanner =
+    document.getElementById("cookieBanner");
+
+const aceptarCookies =
+    document.getElementById("aceptarCookies");
+
+const rechazarCookies =
+    document.getElementById("rechazarCookies");
+
+const compartir =
+    document.getElementById("compartir");
+
+const copiarEnlace =
+    document.getElementById("copiarEnlace");
+
+/* ======================================================
+   FORMATO DE DINERO
+====================================================== */
+
+function formatoDinero(valor) {
+
+    const simbolo =
+        moneda.value;
+
+    const numero =
+        Number(valor);
+
+    if (!Number.isFinite(numero)) {
+
+        return
+            simbolo +
+            "0.00";
+    }
+
+    return (
+        simbolo +
+        numero.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        )
+    );
+}
+
+/* ======================================================
+   VALIDACIÓN
+====================================================== */
+
+function numeroValido(valor) {
+
+    return Number.isFinite(
+        Number(valor)
+    );
+}
+
+/* ======================================================
+   INTERÉS COMPUESTO
+====================================================== */
+
+function calcular() {
+
+    const inicial =
+        Number(
+            document.getElementById(
+                "inicial"
+            ).value
+        );
+
+    const mensual =
+        Number(
+            document.getElementById(
+                "mensual"
+            ).value
+        );
+
+    const tasa =
+        Number(
+            document.getElementById(
+                "tasa"
+            ).value
+        );
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anos"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(inicial) ||
+
+        !numeroValido(mensual) ||
+
+        !numeroValido(tasa) ||
+
+        !numeroValido(anos) ||
+
+        inicial < 0 ||
+
+        mensual < 0 ||
+
+        tasa < 0 ||
+
+        anos <= 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce valores válidos."
+        );
+
+        return;
+    }
+
+    const meses =
+        Math.round(
+            anos * 12
+        );
+
+    const tasaMensual =
+        tasa / 100 / 12;
+
+    let dinero =
+        inicial;
+
+    const valoresAnuales =
+        [];
+
+    for (
+        let mes = 1;
+        mes <= meses;
+        mes++
+    ) {
+
+        dinero =
+            dinero *
+            (1 + tasaMensual);
+
+        dinero +=
+            mensual;
+
+        if (
+            mes % 12 === 0
+        ) {
+
+            valoresAnuales.push({
+
+                ano:
+                    mes / 12,
+
+                valor:
+                    dinero,
+
+                aportado:
+                    inicial +
+                    mensual * mes
+            });
+        }
+    }
+
+    const totalAportado =
+        inicial +
+        mensual * meses;
+
+    const intereses =
+        Math.max(
+            dinero -
+            totalAportado,
+            0
+        );
+
+    const porcentaje =
+        totalAportado > 0
+            ? (
+                intereses /
+                totalAportado
+            ) * 100
+            : 0;
+
+    document.getElementById(
+        "resultado"
+    ).textContent =
+        formatoDinero(
+            dinero
+        );
+
+    document.getElementById(
+        "aportado"
+    ).textContent =
+        formatoDinero(
+            totalAportado
+        );
+
+    document.getElementById(
+        "intereses"
+    ).textContent =
+        formatoDinero(
+            intereses
+        );
+
+    document.getElementById(
+        "porcentajeGanancia"
+    ).textContent =
+        porcentaje.toFixed(2) +
+        "%";
+
+    document.getElementById(
+        "graficaFinal"
+    ).textContent =
+        formatoDinero(
+            dinero
+        );
+
+    document.getElementById(
+        "graficaAportado"
+    ).textContent =
+        formatoDinero(
+            totalAportado
+        );
+
+    document.getElementById(
+        "graficaIntereses"
+    ).textContent =
+        formatoDinero(
+            intereses
+        );
+
+    crearGrafica(
+        valoresAnuales
+    );
+}
+
+/* ======================================================
+   GRÁFICA
+====================================================== */
+
+function crearGrafica(valores) {
+
+    const grafica =
+        document.getElementById(
+            "grafica"
+        );
+
+    grafica.innerHTML =
+        "";
+
+    if (
+        !valores ||
+        valores.length === 0
+    ) {
+
+        grafica.innerHTML = `
+            <div class="mensaje-grafica">
+                No hay datos suficientes
+                para mostrar la gráfica.
+            </div>
+        `;
+
+        return;
+    }
+
+    const maximo =
+        Math.max(
+            ...valores.map(
+                dato =>
+                    Math.max(
+                        dato.valor,
+                        dato.aportado
+                    )
+            )
+        );
+
+    valores.forEach(
+        function(dato) {
+
+            const grupo =
+                document.createElement(
+                    "div"
+                );
+
+            grupo.className =
+                "barra-grupo";
+
+            /* INVERSIÓN */
+
+            const barraInversion =
+                document.createElement(
+                    "div"
+                );
+
+            barraInversion.className =
+                "barra inversion";
+
+            const alturaInversion =
+                maximo > 0
+                    ? (
+                        dato.valor /
+                        maximo
+                    ) * 100
+                    : 4;
+
+            barraInversion.style.height =
+                Math.max(
+                    alturaInversion,
+                    4
+                ) + "%";
+
+            const valorInversion =
+                document.createElement(
+                    "span"
+                );
+
+            valorInversion.className =
+                "valor-barra";
+
+            valorInversion.textContent =
+                formatoDinero(
+                    dato.valor
+                );
+
+            barraInversion.appendChild(
+                valorInversion
+            );
+
+            /* APORTADO */
+
+            const barraAportado =
+                document.createElement(
+                    "div"
+                );
+
+            barraAportado.className =
+                "barra aportado";
+
+            const alturaAportado =
+                maximo > 0
+                    ? (
+                        dato.aportado /
+                        maximo
+                    ) * 100
+                    : 4;
+
+            barraAportado.style.height =
+                Math.max(
+                    alturaAportado,
+                    4
+                ) + "%";
+
+            const valorAportado =
+                document.createElement(
+                    "span"
+                );
+
+            valorAportado.className =
+                "valor-barra";
+
+            valorAportado.textContent =
+                formatoDinero(
+                    dato.aportado
+                );
+
+            barraAportado.appendChild(
+                valorAportado
+            );
+
+            /* ETIQUETA */
+
+            const etiqueta =
+                document.createElement(
+                    "span"
+                );
+
+            etiqueta.className =
+                "barra-label";
+
+            etiqueta.textContent =
+                "Año " +
+                dato.ano;
+
+            grupo.appendChild(
+                barraInversion
+            );
+
+            grupo.appendChild(
+                barraAportado
+            );
+
+            grupo.appendChild(
+                etiqueta
+            );
+
+            grafica.appendChild(
+                grupo
+            );
+
+        }
+    );
+}
+
+/* ======================================================
+   PRÉSTAMOS
+====================================================== */
+
+function calcularPrestamo() {
+
+    const monto =
+        Number(
+            document.getElementById(
+                "montoPrestamo"
+            ).value
+        );
+
+    const tasa =
+        Number(
+            document.getElementById(
+                "tasaPrestamo"
+            ).value
+        );
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anosPrestamo"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(monto) ||
+
+        !numeroValido(tasa) ||
+
+        !numeroValido(anos) ||
+
+        monto <= 0 ||
+
+        tasa < 0 ||
+
+        anos <= 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce valores válidos para el préstamo."
+        );
+
+        return;
+    }
+
+    const meses =
+        Math.round(
+            anos * 12
+        );
+
+    const tasaMensual =
+        tasa / 100 / 12;
+
+    let pagoMensual;
+
+    if (
+        tasaMensual === 0
+    ) {
+
+        pagoMensual =
+            monto / meses;
+
+    } else {
+
+        const factor =
+            Math.pow(
+                1 + tasaMensual,
+                meses
+            );
+
+        pagoMensual =
+            monto *
+            (
+                tasaMensual *
+                factor
+            ) /
+            (
+                factor - 1
+            );
+    }
+
+    const totalPagado =
+        pagoMensual *
+        meses;
+
+    const intereses =
+        Math.max(
+            totalPagado -
+            monto,
+            0
+        );
+
+    document.getElementById(
+        "pagoMensual"
+    ).textContent =
+        formatoDinero(
+            pagoMensual
+        );
+
+    document.getElementById(
+        "totalPagado"
+    ).textContent =
+        formatoDinero(
+            totalPagado
+        );
+
+    document.getElementById(
+        "interesesPrestamo"
+    ).textContent =
+        formatoDinero(
+            intereses
+        );
+}
+
+/* ======================================================
+   HIPOTECA
+====================================================== */
+
+function calcularHipoteca() {
+
+    const precio =
+        Number(
+            document.getElementById(
+                "precioCasa"
+            ).value
+        );
+
+    const enganche =
+        Number(
+            document.getElementById(
+                "enganche"
+            ).value
+        );
+
+    const tasa =
+        Number(
+            document.getElementById(
+                "tasaHipoteca"
+            ).value
+        );
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anosHipoteca"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(precio) ||
+
+        !numeroValido(enganche) ||
+
+        !numeroValido(tasa) ||
+
+        !numeroValido(anos) ||
+
+        precio <= 0 ||
+
+        enganche < 0 ||
+
+        enganche >= precio ||
+
+        tasa < 0 ||
+
+        anos <= 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce valores válidos para la hipoteca."
+        );
+
+        return;
+    }
+
+    const monto =
+        precio -
+        enganche;
+
+    const meses =
+        Math.round(
+            anos * 12
+        );
+
+    const tasaMensual =
+        tasa / 100 / 12;
+
+    let pagoMensual;
+
+    if (
+        tasaMensual === 0
+    ) {
+
+        pagoMensual =
+            monto / meses;
+
+    } else {
+
+        const factor =
+            Math.pow(
+                1 + tasaMensual,
+                meses
+            );
+
+        pagoMensual =
+            monto *
+            (
+                tasaMensual *
+                factor
+            ) /
+            (
+                factor - 1
+            );
+    }
+
+    const totalPagado =
+        pagoMensual *
+        meses;
+
+    const intereses =
+        Math.max(
+            totalPagado -
+            monto,
+            0
+        );
+
+    document.getElementById(
+        "pagoHipoteca"
+    ).textContent =
+        formatoDinero(
+            pagoMensual
+        );
+
+    document.getElementById(
+        "totalHipoteca"
+    ).textContent =
+        formatoDinero(
+            totalPagado
+        );
+
+    document.getElementById(
+        "interesesHipoteca"
+    ).textContent =
+        formatoDinero(
+            intereses
+        );
+}
+
+/* ======================================================
+   AHORRO
+====================================================== */
+
+function calcularAhorro() {
+
+    const inicial =
+        Number(
+            document.getElementById(
+                "ahorroInicial"
+            ).value
+        );
+
+    const meta =
+        Number(
+            document.getElementById(
+                "metaAhorro"
+            ).value
+        );
+
+    const mensual =
+        Number(
+            document.getElementById(
+                "aporteAhorro"
+            ).value
+        );
+
+    const tasa =
+        Number(
+            document.getElementById(
+                "tasaAhorro"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(inicial) ||
+
+        !numeroValido(meta) ||
+
+        !numeroValido(mensual) ||
+
+        !numeroValido(tasa) ||
+
+        inicial < 0 ||
+
+        meta <= 0 ||
+
+        mensual < 0 ||
+
+        tasa < 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce valores válidos para la meta de ahorro."
+        );
+
+        return;
+    }
+
+    if (
+        inicial >= meta
+    ) {
+
+        document.getElementById(
+            "tiempoAhorro"
+        ).textContent =
+            "Meta alcanzada";
+
+        document.getElementById(
+            "totalAhorro"
+        ).textContent =
+            formatoDinero(
+                inicial
+            );
+
+        document.getElementById(
+            "interesesAhorro"
+        ).textContent =
+            formatoDinero(
+                0
+            );
+
+        document.getElementById(
+            "porcentajeMeta"
+        ).textContent =
+            "100%";
+
+        document.getElementById(
+            "barraMeta"
+        ).style.width =
+            "100%";
+
+        return;
+    }
+
+    let meses =
+        0;
+
+    let dinero =
+        inicial;
+
+    const tasaMensual =
+        tasa / 100 / 12;
+
+    while (
+        dinero < meta &&
+        meses < 1200
+    ) {
+
+        dinero =
+            dinero *
+            (
+                1 +
+                tasaMensual
+            );
+
+        dinero +=
+            mensual;
+
+        meses++;
+    }
+
+    if (
+        dinero < meta
+    ) {
+
+        alert(
+            "Con esos valores no se alcanza la meta dentro de 100 años. Aumenta el aporte mensual o revisa la meta."
+        );
+
+        return;
+    }
+
+    const totalAportado =
+        inicial +
+        mensual * meses;
+
+    const intereses =
+        Math.max(
+            dinero -
+            totalAportado,
+            0
+        );
+
+    const progreso =
+        Math.min(
+            (
+                dinero /
+                meta
+            ) * 100,
+            100
+        );
+
+    const anos =
+        Math.floor(
+            meses / 12
+        );
+
+    const mesesRestantes =
+        meses % 12;
+
+    let textoTiempo =
+        "";
+
+    if (
+        anos > 0
+    ) {
+
+        textoTiempo +=
+            anos +
+            (
+                anos === 1
+                    ? " año"
+                    : " años"
+            );
+    }
+
+    if (
+        mesesRestantes > 0
+    ) {
+
+        if (
+            textoTiempo !== ""
+        ) {
+
+            textoTiempo +=
+                " y ";
+        }
+
+        textoTiempo +=
+            mesesRestantes +
+            (
+                mesesRestantes === 1
+                    ? " mes"
+                    : " meses"
+            );
+    }
+
+    document.getElementById(
+        "tiempoAhorro"
+    ).textContent =
+        textoTiempo;
+
+    document.getElementById(
+        "totalAhorro"
+    ).textContent =
+        formatoDinero(
+            totalAportado
+        );
+
+    document.getElementById(
+        "interesesAhorro"
+    ).textContent =
+        formatoDinero(
+            intereses
+        );
+
+    document.getElementById(
+        "porcentajeMeta"
+    ).textContent =
+        progreso.toFixed(0) +
+        "%";
+
+    document.getElementById(
+        "barraMeta"
+    ).style.width =
+        progreso + "%";
+}
+
+/* ======================================================
+   INFLACIÓN
+====================================================== */
+
+function calcularInflacion() {
+
+    const dinero =
+        Number(
+            document.getElementById(
+                "dineroInflacion"
+            ).value
+        );
+
+    const tasa =
+        Number(
+            document.getElementById(
+                "tasaInflacion"
+            ).value
+        );
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anosInflacion"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(dinero) ||
+
+        !numeroValido(tasa) ||
+
+        !numeroValido(anos) ||
+
+        dinero < 0 ||
+
+        tasa < 0 ||
+
+        anos <= 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce valores válidos para la inflación."
+        );
+
+        return;
+    }
+
+    const factor =
+        Math.pow(
+            1 + tasa / 100,
+            anos
+        );
+
+    const futuro =
+        dinero *
+        factor;
+
+    const aumento =
+        futuro -
+        dinero;
+
+    document.getElementById(
+        "valorFuturoInflacion"
+    ).textContent =
+        formatoDinero(
+            futuro
+        );
+
+    document.getElementById(
+        "perdidaInflacion"
+    ).textContent =
+        formatoDinero(
+            aumento
+        );
+
+    document.getElementById(
+        "factorInflacion"
+    ).textContent =
+        factor.toFixed(2) +
+        "x";
+}
+
+/* ======================================================
+   PRESUPUESTO 50/30/20
+====================================================== */
+
+function calcularPresupuesto() {
+
+    const ingreso =
+        Number(
+            document.getElementById(
+                "ingresoMensual"
+            ).value
+        );
+
+    if (
+
+        !numeroValido(ingreso) ||
+
+        ingreso <= 0
+
+    ) {
+
+        alert(
+            "Por favor, introduce un ingreso mensual válido."
+        );
+
+        return;
+    }
+
+    const necesidades =
+        ingreso *
+        0.50;
+
+    const deseos =
+        ingreso *
+        0.30;
+
+    const ahorro =
+        ingreso *
+        0.20;
+
+    document.getElementById(
+        "necesidades"
+    ).textContent =
+        formatoDinero(
+            necesidades
+        );
+
+    document.getElementById(
+        "deseos"
+    ).textContent =
+        formatoDinero(
+            deseos
+        );
+
+    document.getElementById(
+        "ahorroPresupuesto"
+    ).textContent =
+        formatoDinero(
+            ahorro
+        );
+}
+
+/* ======================================================
+   EVENTOS
+====================================================== */
+
+boton.addEventListener(
+    "click",
+    calcular
+);
+
+botonPrestamo.addEventListener(
+    "click",
+    calcularPrestamo
+);
+
+botonHipoteca.addEventListener(
+    "click",
+    calcularHipoteca
+);
+
+botonAhorro.addEventListener(
+    "click",
+    calcularAhorro
+);
+
+botonInflacion.addEventListener(
+    "click",
+    calcularInflacion
+);
+
+botonPresupuesto.addEventListener(
+    "click",
+    calcularPresupuesto
+);
+
+/* ======================================================
+   MODO OSCURO
+====================================================== */
+
+botonModoOscuro.addEventListener(
+    "click",
+    function() {
+
+        document.body.classList.toggle(
+            "modo-oscuro-activo"
+        );
+
+        const activo =
+            document.body.classList.contains(
+                "modo-oscuro-activo"
+            );
+
+        botonModoOscuro.textContent =
+            activo
+                ? "☀️"
+                : "🌙";
+
+        localStorage.setItem(
+            "financalcModoOscuro",
+            activo
+        );
+    }
+);
+
+/* ======================================================
+   CARGAR MODO OSCURO
+====================================================== */
+
+const modoGuardado =
+    localStorage.getItem(
+        "financalcModoOscuro"
+    );
+
+if (
+    modoGuardado === "true"
+) {
+
+    document.body.classList.add(
+        "modo-oscuro-activo"
+    );
+
+    botonModoOscuro.textContent =
+        "☀️";
+}
+
+/* ======================================================
+   CAMBIO DE MONEDA
+====================================================== */
+
+moneda.addEventListener(
+    "change",
+    function() {
+
+        localStorage.setItem(
+            "financalcMoneda",
+            moneda.value
+        );
+
+        if (
+            document.getElementById(
+                "inicial"
+            ).value !== ""
+        ) {
+
+            calcular();
+        }
+
+        if (
+            document.getElementById(
+                "montoPrestamo"
+            ).value !== ""
+        ) {
+
+            calcularPrestamo();
+        }
+
+        if (
+            document.getElementById(
+                "precioCasa"
+            ).value !== ""
+        ) {
+
+            calcularHipoteca();
+        }
+
+        if (
+            document.getElementById(
+                "ahorroInicial"
+            ).value !== ""
+        ) {
+
+            calcularAhorro();
+        }
+
+        if (
+            document.getElementById(
+                "dineroInflacion"
+            ).value !== ""
+        ) {
+
+            calcularInflacion();
+        }
+
+        if (
+            document.getElementById(
+                "ingresoMensual"
+            ).value !== ""
+        ) {
+
+            calcularPresupuesto();
+        }
+
+    }
+);
+
+/* ======================================================
+   CARGAR MONEDA
+====================================================== */
+
+const monedaGuardada =
+    localStorage.getItem(
+        "financalcMoneda"
+    );
+
+if (
+    monedaGuardada
+) {
+
+    const opcionExiste =
+        Array.from(
+            moneda.options
+        ).some(
+            opcion =>
+                opcion.value ===
+                monedaGuardada
+        );
+
+    if (
+        opcionExiste
+    ) {
+
+        moneda.value =
+            monedaGuardada;
+    }
+}
+
+/* ======================================================
+   ENTER PARA CALCULAR
+====================================================== */
+
+document.querySelectorAll(
+    ".calculadora input"
+).forEach(
+    function(input) {
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key !==
+                    "Enter"
+                ) {
+                    return;
+                }
+
+                const calculadora =
+                    input.closest(
+                        ".calculadora"
+                    );
+
+                if (
+                    !calculadora
+                ) {
+                    return;
+                }
+
+                switch (
+                    calculadora.id
+                ) {
+
+                    case "inversiones":
+
+                        calcular();
+
+                        break;
+
+                    case "prestamos":
+
+                        calcularPrestamo();
+
+                        break;
+
+                    case "hipoteca":
+
+                        calcularHipoteca();
+
+                        break;
+
+                    case "ahorro":
+
+                        calcularAhorro();
+
+                        break;
+
+                    case "inflacion":
+
+                        calcularInflacion();
+
+                        break;
+
+                    case "presupuesto":
+
+                        calcularPresupuesto();
+
+                        break;
+                }
+
+            }
+        );
+
+    }
+);
+
+/* ======================================================
+   BOTÓN ARRIBA
+====================================================== */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            botonArriba.style.display =
+                "flex";
+
+        } else {
+
+            botonArriba.style.display =
+                "none";
+        }
+
+    }
+);
+
+botonArriba.addEventListener(
+    "click",
+    function() {
+
+        window.scrollTo({
+
+            top:
+                0,
+
+            behavior:
+                "smooth"
+
+        });
+
+    }
+);
+
+/* ======================================================
+   COMPARTIR
+====================================================== */
+
+compartir.addEventListener(
+    "click",
+    async function() {
+
+        const datos = {
+
+            title:
+                "FinanCalc",
+
+            text:
+                "Prueba FinanCalc, calculadoras financieras gratuitas.",
+
+            url:
+                window.location.href
+        };
+
+        if (
+            navigator.share
+        ) {
+
+            try {
+
+                await navigator.share(
+                    datos
+                );
+
+            } catch (error) {
+
+                /* Usuario canceló compartir */
+            }
+
+        } else {
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    window.location.href
+                );
+
+                alert(
+                    "Enlace copiado."
+                );
+
+            } catch (error) {
+
+                alert(
+                    "No se pudo copiar el enlace."
+                );
+            }
+        }
+
+    }
+);
+
+/* ======================================================
+   COPIAR ENLACE
+====================================================== */
+
+copiarEnlace.addEventListener(
+    "click",
+    async function() {
+
+        try {
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            const textoOriginal =
+                copiarEnlace.textContent;
+
+            copiarEnlace.textContent =
+                "✅ Enlace copiado";
+
+            setTimeout(
+                function() {
+
+                    copiarEnlace.textContent =
+                        textoOriginal;
+
+                },
+                1800
+            );
+
+        } catch (error) {
+
+            alert(
+                "No se pudo copiar el enlace."
+            );
+        }
+
+    }
+);
+
+/* ======================================================
+   COOKIES
+====================================================== */
+
+const cookiesGuardadas =
+    localStorage.getItem(
+        "financalcCookies"
+    );
+
+if (
+    !cookiesGuardadas
+) {
+
+    cookieBanner.style.display =
+        "block";
+}
+
+aceptarCookies.addEventListener(
+    "click",
+    function() {
+
+        localStorage.setItem(
+            "financalcCookies",
+            "aceptadas"
+        );
+
+        cookieBanner.style.display =
+            "none";
+
+    }
+);
+
+rechazarCookies.addEventListener(
+    "click",
+    function() {
+
+        localStorage.setItem(
+            "financalcCookies",
+            "rechazadas"
+        );
+
+        cookieBanner.style.display =
+            "none";
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
