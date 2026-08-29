@@ -5,6 +5,8 @@
 
 <meta charset="UTF-8">
 
+<meta name="google-site-verification" content="l-qzuLwfV82_ObWDKU-WZhCIyKIfS1XPq8yJiy3eRQQ" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="FinanCalc: calculadoras financieras gratuitas de inversiones, préstamos, hipotecas, ahorro, inflación y presupuesto.">
@@ -2892,10 +2894,6 @@ body.modo-oscuro-activo .modo-oscuro {
     </nav>
 
 
-    <!-- ==================================================
-         SELECTOR DE MONEDA
-    =================================================== -->
-
     <select
         id="moneda"
         class="moneda"
@@ -2938,10 +2936,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </header>
 
 
-<!-- ====================================================
-     HERO
-===================================================== -->
-
 <section
     class="hero"
     id="inicio"
@@ -2979,10 +2973,6 @@ body.modo-oscuro-activo .modo-oscuro {
 <div class="contenedor">
 
 
-<!-- ====================================================
-     ANUNCIO
-===================================================== -->
-
 <div
     class="anuncio"
     aria-label="Espacio publicitario"
@@ -2994,10 +2984,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     INVERSIÓN
-===================================================== -->
 
 <main
     class="calculadora"
@@ -3294,10 +3280,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </main>
 
 
-<!-- ====================================================
-     ANUNCIO
-===================================================== -->
-
 <div
     class="anuncio"
     aria-label="Espacio publicitario"
@@ -3309,10 +3291,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     PRÉSTAMOS
-===================================================== -->
 
 <section
     class="calculadora"
@@ -3467,10 +3445,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </section>
 
-
-<!-- ====================================================
-     HIPOTECA
-===================================================== -->
 
 <section
     class="calculadora"
@@ -3648,10 +3622,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     ANUNCIO
-===================================================== -->
-
 <div
     class="anuncio"
     aria-label="Espacio publicitario"
@@ -3663,10 +3633,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     AHORRO
-===================================================== -->
 
 <section
     class="calculadora"
@@ -3871,10 +3837,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     INFLACIÓN
-===================================================== -->
-
 <section
     class="calculadora"
     id="inflacion"
@@ -4029,10 +3991,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     PRESUPUESTO
-===================================================== -->
-
 <section
     class="calculadora"
     id="presupuesto"
@@ -4143,10 +4101,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     ANUNCIO
-===================================================== -->
-
 <div
     class="anuncio"
     aria-label="Espacio publicitario"
@@ -4158,10 +4112,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     POR QUÉ USAR FINANCALC
-===================================================== -->
 
 <section class="info">
 
@@ -4228,10 +4178,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </section>
 
-
-<!-- ====================================================
-     CONTENIDO SEO
-===================================================== -->
 
 <section
     class="contenido"
@@ -4345,10 +4291,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     AVISO
-===================================================== -->
-
 <div class="aviso">
 
     <strong>
@@ -4365,10 +4307,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     FAQ
-===================================================== -->
 
 <section
     class="faq"
@@ -4456,10 +4394,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </section>
 
 
-<!-- ====================================================
-     COMPARTIR
-===================================================== -->
-
 <div class="compartir">
 
     <button
@@ -4481,10 +4415,6 @@ body.modo-oscuro-activo .modo-oscuro {
 
 </div>
 
-
-<!-- ====================================================
-     LEGAL
-===================================================== -->
 
 <section
     class="legal"
@@ -4676,10 +4606,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </div>
 
 
-<!-- ====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
     <strong>
@@ -4714,10 +4640,6 @@ body.modo-oscuro-activo .modo-oscuro {
 </footer>
 
 
-<!-- ====================================================
-     BOTÓN ARRIBA
-===================================================== -->
-
 <button
     id="arriba"
     type="button"
@@ -4727,10 +4649,6 @@ body.modo-oscuro-activo .modo-oscuro {
     ↑
 </button>
 
-
-<!-- ====================================================
-     COOKIE BANNER
-===================================================== -->
 
 <div
     id="cookieBanner"
@@ -4960,10 +4878,6 @@ async function obtenerTasa(
         destino;
 
 
-    /*
-       Utilizamos una tasa guardada por una hora.
-    */
-
     if (
 
         cacheTasas[clave] &&
@@ -4983,17 +4897,6 @@ async function obtenerTasa(
 
     }
 
-
-    /*
-       Consulta directa del par.
-
-       CRC/USD
-       USD/CRC
-       EUR/USD
-       USD/EUR
-       GBP/MXN
-       etc.
-    */
 
     const url =
         "https://api.frankfurter.dev/v2/rate/" +
@@ -5078,11 +4981,6 @@ async function convertirCamposMonetarios(
     }
 
 
-    /*
-       Obtenemos la tasa primero.
-       Así no modificamos los campos si la consulta falla.
-    */
-
     const tasa =
         await obtenerTasa(
             origen,
@@ -5138,10 +5036,6 @@ async function convertirCamposMonetarios(
             valor *
             tasa;
 
-
-        /*
-           Conservamos seis decimales internamente.
-        */
 
         campo.value =
             Number(
@@ -6563,10 +6457,6 @@ moneda.addEventListener(
             ];
 
 
-        /*
-           Validación.
-        */
-
         if (
 
             !codigoOrigen ||
@@ -6583,10 +6473,6 @@ moneda.addEventListener(
         }
 
 
-        /*
-           Misma moneda.
-        */
-
         if (
             codigoOrigen ===
             codigoDestino
@@ -6597,28 +6483,11 @@ moneda.addEventListener(
         }
 
 
-        /*
-           Bloqueamos temporalmente
-           el selector.
-        */
-
         moneda.disabled =
             true;
 
 
         try {
-
-            /*
-               CONVERSIÓN REAL.
-
-               Ejemplo:
-
-               CRC → USD
-
-               20,000 CRC
-               × tasa CRC/USD
-               = valor en USD
-            */
 
             await convertirCamposMonetarios(
 
@@ -6628,10 +6497,6 @@ moneda.addEventListener(
 
             );
 
-
-            /*
-               La conversión fue exitosa.
-            */
 
             monedaAnterior =
                 nuevaSeleccion;
@@ -6646,20 +6511,11 @@ moneda.addEventListener(
             );
 
 
-            /*
-               Recalculamos resultados
-               usando los nuevos valores.
-            */
-
             recalcularTodo();
 
 
         } catch (error) {
 
-            /*
-               Si falla la API no dejamos
-               valores en monedas mezcladas.
-            */
 
             moneda.value =
                 monedaAnterior;
@@ -7116,11 +6972,6 @@ const cookiesGuardadas =
     );
 
 
-/*
-   Si ya aceptó anteriormente,
-   cargamos Google Analytics.
-*/
-
 if (
     cookiesGuardadas === "aceptadas"
 ) {
@@ -7129,11 +6980,6 @@ if (
 
 }
 
-
-/*
-   Si todavía no ha elegido,
-   mostramos el aviso.
-*/
 
 if (
     !cookiesGuardadas
@@ -7165,11 +7011,6 @@ aceptarCookies.addEventListener(
         cookieBanner.style.display =
             "none";
 
-
-        /*
-           Analytics se carga solamente
-           después de aceptar.
-        */
 
         cargarGoogleAnalytics();
 
