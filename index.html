@@ -16,6 +16,9 @@
 
 <meta name="robots" content="index, follow">
 
+<meta name="alternateLanguage" content="es,en">
+<meta name="content-language" content="es">
+
 <link rel="canonical" href="https://financalcc.justinrodriguez696.workers.dev/">
 
 <meta property="og:type" content="website">
@@ -281,6 +284,31 @@ header {
 
     cursor:
         wait;
+}
+
+/* ======================================================
+   SELECTOR DE IDIOMA
+====================================================== */
+
+#idioma {
+    min-width: 122px;
+}
+
+@media (max-width: 900px) {
+
+    #idioma {
+        min-width: 112px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #idioma {
+        display: block;
+        min-width: 108px;
+        padding: 9px 8px;
+        font-size: 12px;
+    }
 }
 
 /* ======================================================
@@ -3131,6 +3159,20 @@ body.modo-oscuro-activo .mega-categoria span {
         </a>
 
     </nav>
+
+
+    <select
+        id="idioma"
+        class="moneda"
+        aria-label="Seleccionar idioma"
+        title="Seleccionar idioma"
+    >
+
+        <option value="es">🇪🇸 Español</option>
+
+        <option value="en">🇺🇸 English</option>
+
+    </select>
 
 
     <select
@@ -8314,6 +8356,200 @@ if (typeof moneda !== "undefined") {
     }
 });
 
+</script>
+
+
+<!-- =====================================================
+     FINANCALC BILINGÜE ES / EN
+     Añadido sin eliminar la lógica existente.
+===================================================== -->
+<script>
+(function () {
+    "use strict";
+
+    const FC_TRANSLATIONS = {"Inicio":"Home","Inversiones":"Investments","Préstamos":"Loans","Hipoteca":"Mortgage","Ahorro":"Savings","Inflación":"Inflation","Más calculadoras":"More calculators","FAQ":"FAQ","Español":"Spanish","English":"English","💰 Herramientas financieras gratuitas":"💰 Free financial tools","Haz que tu":"Make your","dinero trabaje":"money work","para ti.":"for you.","Calcula inversiones, préstamos, hipotecas, ahorro e inflación de forma sencilla y comprende mejor tus finanzas.":"Calculate investments, loans, mortgages, savings and inflation easily and understand your finances better.","Espacio publicitario":"Advertising space","📈 Calculadora de interés compuesto":"📈 Compound Interest Calculator","Descubre cuánto podría crecer tu inversión con aportes mensuales.":"Discover how much your investment could grow with monthly contributions.","Inversión inicial":"Initial investment","Cantidad inicial":"Initial amount","Aporte mensual":"Monthly contribution","Aporte cada mes":"Monthly contribution","Tasa anual (%)":"Annual rate (%)","Rendimiento anual estimado":"Estimated annual return","Tiempo (años)":"Time (years)","Tiempo de inversión":"Investment period","Calcular crecimiento →":"Calculate growth →","Dinero final":"Final amount","Total aportado":"Total contributed","Intereses ganados":"Interest earned","Ganancia sobre lo aportado":"Gain over contributions","📊 Crecimiento de tu inversión":"📊 Investment growth","Compara el dinero que aportas con el valor acumulado.":"Compare what you contribute with the accumulated value.","Valor acumulado":"Accumulated value","Valor final":"Final value","Intereses":"Interest","Introduce tus datos y pulsa \"Calcular crecimiento\".":"Enter your data and click \"Calculate growth\".","💳 Calculadora de préstamos":"💳 Loan Calculator","Calcula tu pago mensual, el total que pagarás y cuánto pagarás en intereses.":"Calculate your monthly payment, total payment and total interest.","Monto del préstamo":"Loan amount","Cantidad que deseas pedir prestada":"Amount you want to borrow","Interés anual del préstamo":"Annual loan interest","Plazo (años)":"Term (years)","Tiempo para pagar":"Repayment period","Calcular préstamo →":"Calculate loan →","Pago mensual":"Monthly payment","Total pagado":"Total paid","Intereses totales":"Total interest","🏠 Calculadora de hipoteca":"🏠 Mortgage Calculator","Calcula el pago mensual de tu vivienda y el costo total de la hipoteca.":"Calculate your home's monthly payment and total mortgage cost.","Precio de la vivienda":"Home price","Precio total de la vivienda":"Total home price","Enganche":"Down payment","Cantidad pagada inicialmente":"Amount paid upfront","Interés anual":"Annual interest","Calcular hipoteca →":"Calculate mortgage →","🎯 Calculadora de ahorro para una meta":"🎯 Savings Goal Calculator","Descubre cuánto tiempo podrías necesitar para alcanzar una meta de ahorro.":"Find out how long you may need to reach a savings goal.","Ahorro actual":"Current savings","Dinero que ya tienes ahorrado":"Money you already have saved","Meta de ahorro":"Savings goal","Cantidad que quieres alcanzar":"Target amount","Cantidad que ahorrarás cada mes":"Amount you will save each month","Calcular meta →":"Calculate goal →","Tiempo estimado":"Estimated time","Intereses estimados":"Estimated interest","Progreso hacia tu meta":"Progress toward your goal","📉 Calculadora de inflación":"📉 Inflation Calculator","Estima cuánto podría necesitar tu dinero en el futuro para mantener el mismo poder adquisitivo.":"Estimate how much money you may need in the future to maintain the same purchasing power.","Cantidad actual":"Current amount","Valor actual del dinero":"Current value of money","Inflación anual (%)":"Annual inflation (%)","Inflación anual estimada":"Estimated annual inflation","Años en el futuro":"Years in the future","Calcular inflación →":"Calculate inflation →","Valor futuro necesario":"Required future value","Aumento estimado":"Estimated increase","Factor acumulado":"Accumulated factor","📊 Calculadora de presupuesto 50/30/20":"📊 50/30/20 Budget Calculator","Divide tus ingresos mensuales entre necesidades, deseos y ahorro.":"Divide your monthly income among needs, wants and savings.","Ingreso mensual":"Monthly income","Ingreso mensual después de impuestos":"Monthly income after taxes","Calcular presupuesto →":"Calculate budget →","Necesidades · 50%":"Needs · 50%","Deseos · 30%":"Wants · 30%","Ahorro · 20%":"Savings · 20%","¿Por qué usar FinanCalc?":"Why use FinanCalc?","Rápido y sencillo":"Fast and simple","Introduce tus datos y obtén resultados en segundos.":"Enter your data and get results in seconds.","Visualiza tus resultados":"Visualize your results","Comprende mejor cómo puede evolucionar tu dinero a través del tiempo.":"Better understand how your money can change over time.","Varias monedas":"Multiple currencies","Elige entre USD, EUR, CRC, GBP y MXN.":"Choose from USD, EUR, CRC, GBP and MXN.","🧮 CENTRO DE HERRAMIENTAS":"🧮 TOOL CENTER","12 calculadoras nuevas":"12 new calculators","Más calculadoras financieras":"More financial calculators","Amplía tus cálculos con herramientas para deudas, impuestos, ahorro, patrimonio, vivienda, rentabilidad y decisiones del día a día.":"Expand your calculations with tools for debt, taxes, savings, net worth, housing, returns and everyday financial decisions.","Interés simple":"Simple interest","Calcula intereses cuando la ganancia no se reinvierte.":"Calculate interest when earnings are not reinvested.","Capital inicial":"Initial principal","Calcular interés →":"Calculate interest →","Interés generado":"Interest generated","Monto final":"Final amount","Rendimiento":"Return","Años":"Years","Pago de tarjeta de crédito":"Credit card payoff","Estima cuánto tardarías en liquidar una deuda con un pago fijo.":"Estimate how long it would take to pay off a debt with a fixed payment.","Saldo actual":"Current balance","Interés anual (%)":"Annual interest (%)","Calcular deuda →":"Calculate debt →","Pago usado":"Payment used","Estimación matemática: una tarjeta real puede incluir comisiones, seguros, impuestos, pagos mínimos variables y otras condiciones.":"Mathematical estimate: an actual credit card may include fees, insurance, taxes, variable minimum payments and other conditions.","IVA":"VAT","Obtén el impuesto y el total a pagar desde un precio antes de IVA.":"Get the tax and total payable from a price before VAT.","Precio antes de IVA":"Price before VAT","IVA (%)":"VAT (%)","Calcular IVA →":"Calculate VAT →","Total con IVA":"Total with VAT","Precio base":"Base price","Tasa aplicada":"Applied rate","🏷️":"🏷️","Descuento":"Discount","Calcula cuánto ahorras y cuál es el precio final de una oferta.":"Calculate how much you save and the final price of an offer.","Precio original":"Original price","Descuento (%)":"Discount (%)","Calcular descuento →":"Calculate discount →","Ahorras":"You save","Precio final":"Final price","Conversión de tasa":"Rate conversion","Convierte una tasa nominal anual según su frecuencia de capitalización.":"Convert a nominal annual rate based on its compounding frequency.","Tasa nominal anual (%)":"Nominal annual rate (%)","Capitalizaciones al año":"Compounding periods per year","Convertir tasa →":"Convert rate →","Tasa efectiva anual":"Effective annual rate","Tasa mensual equivalente":"Equivalent monthly rate","Tasa nominal":"Nominal rate","Capitalizaciones":"Compounding periods","Valor futuro":"Future value","Estima cuánto valdrá hoy una cantidad después de varios años con una tasa.":"Estimate what an amount today will be worth after several years at a given rate.","Calcular valor futuro →":"Calculate future value →","Ganancia":"Gain","Factor de crecimiento":"Growth factor","Tiempo":"Time","Rentabilidad de inversión":"Investment return","Mide la ganancia, el ROI y una tasa anual aproximada de crecimiento.":"Measure profit, total ROI and an approximate annual growth rate.","Monto invertido":"Amount invested","Calcular rentabilidad →":"Calculate return →","Ganancia / pérdida":"Gain / loss","ROI total":"Total ROI","Tasa anual aprox.":"Approx. annual rate","Fondo de emergencia":"Emergency fund","Calcula cuánto dinero necesitas según tus gastos esenciales y meses objetivo.":"Calculate how much money you need based on essential expenses and target months.","Gastos esenciales mensuales":"Essential monthly expenses","Meses de cobertura":"Months of coverage","Calcular fondo →":"Calculate fund →","Fondo objetivo":"Target fund","Te falta":"Remaining","Cubierto actualmente":"Currently covered","Meses objetivo":"Target months","Ahorro mensual necesario":"Required monthly savings","Descubre cuánto aportar cada mes para alcanzar una meta en un plazo definido.":"Find out how much to contribute each month to reach a goal within a defined time.","Ahorro inicial":"Initial savings","Rendimiento anual (%)":"Annual return (%)","Calcular aporte →":"Calculate contribution →","Meta":"Goal","Patrimonio neto":"Net worth","Compara tus activos con tus deudas para conocer tu patrimonio neto.":"Compare your assets with your debts to calculate your net worth.","Activos totales":"Total assets","Deudas totales":"Total debts","Calcular patrimonio →":"Calculate net worth →","Deudas":"Debts","Activos":"Assets","Deuda / activos":"Debt / assets","Capacidad de compra de vivienda":"Home buying capacity","Estima un precio máximo según ingreso, deudas, cuota objetivo, tasa y prima.":"Estimate a maximum home price based on income, debt, target payment, rate and down payment.","Deudas mensuales actuales":"Current monthly debts","Máx. para vivienda (%)":"Max. for housing (%)","Prima / enganche (%)":"Down payment (%)","Estimar capacidad →":"Estimate capacity →","Cuota de vivienda estimada":"Estimated housing payment","Préstamo máximo estimado":"Estimated maximum loan","Precio de vivienda estimado":"Estimated home price","Prima estimada":"Estimated down payment","No representa una preaprobación bancaria. El resultado no incluye necesariamente seguros, impuestos, mantenimiento, comisiones u otros costos de vivienda.":"This is not a bank pre-approval. The result may not include insurance, taxes, maintenance, fees or other housing costs.","⏱️":"⏱️","Salario por hora":"Hourly wage","Convierte un salario mensual en una referencia aproximada por hora y por año.":"Convert a monthly salary into an approximate hourly and annual reference.","Salario mensual":"Monthly salary","Horas por semana":"Hours per week","Semanas trabajadas al año":"Weeks worked per year","Calcular salario →":"Calculate wage →","Salario anual":"Annual salary","Horas al año":"Hours per year","Es una equivalencia matemática basada en los datos introducidos y no calcula deducciones, horas extra, vacaciones, bonos ni impuestos.":"This is a mathematical equivalent based on the entered data and does not calculate deductions, overtime, vacation, bonuses or taxes.","Aprende a utilizar nuestras calculadoras financieras":"Learn how to use our financial calculators","FinanCalc reúne herramientas sencillas para ayudarte a entender algunos conceptos básicos de finanzas personales. Puedes utilizar nuestras calculadoras para hacer estimaciones sobre inversiones, préstamos, hipotecas, ahorro e inflación.":"FinanCalc brings together simple tools to help you understand basic personal finance concepts. You can use our calculators to estimate investments, loans, mortgages, savings and inflation.","¿Qué es el interés compuesto?":"What is compound interest?","El interés compuesto ocurre cuando los rendimientos obtenidos se incorporan al capital y posteriormente también generan rendimientos. Con el paso del tiempo, este efecto puede aumentar significativamente el crecimiento de una inversión.":"Compound interest occurs when earned returns are added to the principal and then also generate returns. Over time, this effect can significantly increase investment growth.","¿Cómo funciona una calculadora de préstamos?":"How does a loan calculator work?","La calculadora estima el pago periódico utilizando el monto solicitado, la tasa anual y el plazo. También muestra una estimación del total pagado y de los intereses.":"The calculator estimates the periodic payment using the amount borrowed, annual rate and term. It also shows an estimate of total paid and interest.","¿Cómo funciona una calculadora de hipoteca?":"How does a mortgage calculator work?","Primero se resta el enganche del precio de la vivienda para determinar el monto financiado. Después se estima el pago mensual utilizando la tasa y el plazo seleccionados.":"First, the down payment is subtracted from the home price to determine the financed amount. The monthly payment is then estimated using the selected rate and term.","¿Cómo funciona la calculadora de ahorro?":"How does the savings calculator work?","Esta herramienta estima cuánto tiempo puede tomar alcanzar una meta considerando el ahorro inicial, los aportes mensuales y una posible tasa de rendimiento.":"This tool estimates how long it may take to reach a goal based on initial savings, monthly contributions and a possible return rate.","¿Qué muestra la calculadora de inflación?":"What does the inflation calculator show?","Permite estimar cuánto dinero podría ser necesario en el futuro para comprar una cantidad equivalente de bienes y servicios, utilizando una tasa anual de inflación estimada.":"It estimates how much money may be needed in the future to buy an equivalent amount of goods and services using an estimated annual inflation rate.","Consejos para utilizar estas herramientas":"Tips for using these tools","Compara diferentes tasas de interés.":"Compare different interest rates.","Prueba diferentes plazos.":"Try different terms.","Observa cuánto representan los intereses.":"See how much interest represents.","Compara diferentes niveles de ahorro mensual.":"Compare different monthly savings amounts.","No tomes una decisión financiera únicamente basándote en una calculadora.":"Do not make a financial decision based only on a calculator.","⚠️ Importante:":"⚠️ Important:","Las cifras mostradas por FinanCalc son estimaciones con fines informativos y educativos. Los resultados reales pueden variar según las condiciones de cada banco, inversión, préstamo, impuestos, comisiones y otros factores. FinanCalc no proporciona asesoramiento financiero, de inversión, legal ni fiscal.":"Figures shown by FinanCalc are estimates for informational and educational purposes. Actual results may vary depending on bank, investment, loan, tax, fee and other conditions. FinanCalc does not provide financial, investment, legal or tax advice.","Preguntas frecuentes":"Frequently asked questions","¿Las calculadoras son gratuitas?":"Are the calculators free?","Sí. Las herramientas principales de FinanCalc están diseñadas para utilizarse gratuitamente.":"Yes. FinanCalc's main tools are designed to be used for free.","¿Los resultados son exactos?":"Are the results exact?","Son estimaciones matemáticas. Las condiciones reales pueden cambiar debido a comisiones, impuestos, variaciones de tasas y políticas de cada institución.":"They are mathematical estimates. Actual conditions may change due to fees, taxes, rate changes and each institution's policies.","¿Puedo cambiar la moneda?":"Can I change the currency?","Sí. Puedes seleccionar USD, CRC, EUR, GBP o MXN desde el selector ubicado en la parte superior. Las cantidades monetarias se convierten usando tasas de referencia obtenidas en línea.":"Yes. You can select USD, CRC, EUR, GBP or MXN from the selector at the top. Monetary amounts are converted using online reference rates.","¿Puedo utilizar las calculadoras desde el celular?":"Can I use the calculators on my phone?","Sí. FinanCalc está diseñado para adaptarse a teléfonos, tabletas y computadoras.":"Yes. FinanCalc is designed for phones, tablets and computers.","¿FinanCalc guarda mis datos financieros?":"Does FinanCalc store my financial data?","Los cálculos se realizan directamente en tu navegador. FinanCalc no necesita que introduzcas información bancaria para utilizar estas calculadoras.":"Calculations are performed directly in your browser. FinanCalc does not require banking information to use these calculators.","📤 Compartir FinanCalc":"📤 Share FinanCalc","🔗 Copiar enlace":"🔗 Copy link","🔒 Política de privacidad":"🔒 Privacy Policy","En FinanCalc respetamos la privacidad de nuestros visitantes. Esta política explica cómo pueden utilizarse determinados datos técnicos, cookies y tecnologías similares.":"At FinanCalc we respect our visitors' privacy. This policy explains how certain technical data, cookies and similar technologies may be used.","Información técnica":"Technical information","El sitio puede procesar información técnica básica necesaria para su funcionamiento, seguridad, análisis y mejora del servicio, dependiendo de los servicios activos.":"The site may process basic technical information needed for operation, security, analytics and service improvement, depending on active services.","Cookies y almacenamiento local":"Cookies and local storage","FinanCalc puede utilizar cookies, almacenamiento local y tecnologías similares para recordar preferencias, mejorar la experiencia y, cuando corresponda, mostrar publicidad.":"FinanCalc may use cookies, local storage and similar technologies to remember preferences, improve the experience and, when applicable, display advertising.","Publicidad de terceros":"Third-party advertising","FinanCalc puede utilizar servicios publicitarios de terceros, incluido Google AdSense. Dichos proveedores pueden utilizar cookies u otras tecnologías similares para mostrar anuncios, medir su rendimiento y personalizar la publicidad cuando corresponda y exista el consentimiento requerido.":"FinanCalc may use third-party advertising services, including Google AdSense. These providers may use cookies or similar technologies to display ads, measure performance and personalize advertising where applicable and required consent exists.","Los usuarios pueden administrar determinadas preferencias relacionadas con la publicidad mediante la configuración de anuncios de Google.":"Users can manage certain advertising preferences through Google Ads Settings.","Configuración de anuncios de Google":"Google Ads Settings","Consentimiento":"Consent","Cuando la legislación aplicable lo requiera, FinanCalc solicitará el consentimiento correspondiente antes de utilizar determinadas tecnologías para publicidad personalizada u otras finalidades que requieran consentimiento.":"Where applicable law requires it, FinanCalc will request the appropriate consent before using certain technologies for personalized advertising or other purposes that require consent.","Datos introducidos en las calculadoras":"Data entered in calculators","Los valores introducidos en las calculadoras se utilizan para realizar los cálculos solicitados. FinanCalc no necesita números de tarjetas, contraseñas ni credenciales bancarias.":"Values entered into calculators are used to perform the requested calculations. FinanCalc does not need card numbers, passwords or banking credentials.","Servicios de terceros":"Third-party services","El sitio puede utilizar servicios de terceros relacionados con alojamiento, seguridad, publicidad, estadísticas y funcionamiento técnico. Cada proveedor puede aplicar sus propias políticas de privacidad.":"The site may use third-party services related to hosting, security, advertising, analytics and technical operation. Each provider may have its own privacy policy.","Enlaces externos":"External links","FinanCalc puede contener enlaces hacia otros sitios web. No somos responsables de sus políticas de privacidad ni de sus prácticas.":"FinanCalc may contain links to other websites. We are not responsible for their privacy policies or practices.","Actualizaciones":"Updates","Esta política puede actualizarse cuando cambien las funciones del sitio, los servicios utilizados o los requisitos aplicables.":"This policy may be updated when site features, services used or applicable requirements change.","Última actualización: 28 de agosto de 2026.":"Last updated: August 28, 2026.","🍪 Cookies":"🍪 Cookies","FinanCalc puede utilizar cookies, almacenamiento local y tecnologías similares para recordar preferencias, mejorar la experiencia, medir el uso del sitio y, cuando corresponda, ofrecer publicidad.":"FinanCalc may use cookies, local storage and similar technologies to remember preferences, improve the experience, measure site usage and, where applicable, provide advertising.","Las preferencias básicas, como la moneda seleccionada y el modo oscuro, pueden almacenarse localmente en tu navegador.":"Basic preferences, such as the selected currency and dark mode, may be stored locally in your browser.","Cuando FinanCalc utilice publicidad de terceros, como Google AdSense, dichos servicios podrán utilizar cookies y tecnologías similares de acuerdo con sus propias políticas.":"When FinanCalc uses third-party advertising, such as Google AdSense, those services may use cookies and similar technologies according to their own policies.","En regiones donde sea necesario, FinanCalc solicitará el consentimiento correspondiente antes de utilizar determinadas tecnologías para publicidad o personalización.":"In regions where required, FinanCalc will request the appropriate consent before using certain technologies for advertising or personalization.","📄 Aviso legal":"📄 Legal notice","FinanCalc ofrece herramientas informativas. El contenido no constituye asesoramiento financiero, de inversión, legal o fiscal.":"FinanCalc provides informational tools. The content does not constitute financial, investment, legal or tax advice.","Herramientas financieras simples para tomar mejores decisiones.":"Simple financial tools to make better decisions.","Privacidad":"Privacy","Cookies":"Cookies","Aviso legal":"Legal notice","Utilizamos almacenamiento local para recordar algunas preferencias de FinanCalc. Cuando utilicemos servicios publicitarios o analíticos de terceros, estos podrán utilizar cookies u otras tecnologías similares. Puedes aceptar o rechazar las preferencias disponibles en este aviso.":"We use local storage to remember some FinanCalc preferences. When we use third-party advertising or analytics services, they may use cookies or similar technologies. You can accept or reject the available preferences in this notice.","Aceptar":"Accept","Rechazar":"Reject"};
+    const FC_ATTRIBUTE_TRANSLATIONS = {"Seleccionar moneda":"Select currency","Seleccionar idioma":"Select language","Cambiar modo de color":"Change color mode","Calculadoras financieras gratuitas":"Free financial calculators","Buscar":"Search","Volver":"Back","Copiar enlace":"Copy link"};
+
+    const FC_META = {
+        es: {
+            title: "FinanCalc | Calculadoras financieras gratuitas",
+            description: "FinanCalc: calculadoras financieras gratuitas de inversiones, préstamos, hipotecas, ahorro, inflación, presupuesto, deudas, IVA, descuentos y patrimonio.",
+            ogTitle: "FinanCalc | Calculadoras financieras gratuitas",
+            ogDescription: "Calcula inversiones, préstamos, hipotecas, ahorro, inflación, presupuesto, deudas, IVA y descuentos de forma sencilla y gratuita."
+        },
+        en: {
+            title: "FinanCalc | Free Financial Calculators",
+            description: "FinanCalc: free financial calculators for investments, loans, mortgages, savings, inflation, budgeting, debt, VAT, discounts and net worth.",
+            ogTitle: "FinanCalc | Free Financial Calculators",
+            ogDescription: "Calculate investments, loans, mortgages, savings, inflation, budgeting, debt, VAT and discounts easily and for free."
+        }
+    };
+
+    const LANG_KEY = "finanIdioma";
+    const selector = document.getElementById("idioma");
+    let currentLanguage = localStorage.getItem(LANG_KEY) || "es";
+    let translating = false;
+
+    function translateValue(value, lang) {
+        if (lang === "es") return value;
+        if (FC_TRANSLATIONS[value] !== undefined) return FC_TRANSLATIONS[value];
+
+        let result = value;
+
+        // Dynamic time units produced by the calculators.
+        result = result.replace(/\b1 año\b/g, "1 year");
+        result = result.replace(/\b([0-9.,]+) años\b/g, "$1 years");
+        result = result.replace(/\b1 mes\b/g, "1 month");
+        result = result.replace(/\b([0-9.,]+) meses\b/g, "$1 months");
+        result = result.replace(/\bmeses\b/g, "months");
+        result = result.replace(/\baños\b/g, "years");
+        result = result.replace(/\baño\b/g, "year");
+        result = result.replace(/\bmes\b/g, "month");
+        result = result.replace(/\/ año\b/g, "/ year");
+
+        return result;
+    }
+
+    function translateTextNode(node) {
+        if (!node || !node.nodeValue || translating) return;
+        const trimmed = node.nodeValue.trim();
+        if (!trimmed) return;
+
+        const translated = translateValue(trimmed, currentLanguage);
+        if (translated === trimmed) return;
+
+        translating = true;
+        node.nodeValue = node.nodeValue.replace(trimmed, translated);
+        translating = false;
+    }
+
+    function translateAttributes(root) {
+        if (!root || currentLanguage !== "en") return;
+
+        const elements = root.querySelectorAll ? root.querySelectorAll("*") : [];
+        elements.forEach(function (el) {
+            ["placeholder", "title", "aria-label"].forEach(function (attr) {
+                const value = el.getAttribute(attr);
+                if (!value) return;
+                const translated = FC_ATTRIBUTE_TRANSLATIONS[value] || translateValue(value, "en");
+                if (translated && translated !== value) el.setAttribute(attr, translated);
+            });
+        });
+    }
+
+    function translateStatic(root) {
+        if (!root) return;
+
+        const walker = document.createTreeWalker(
+            root,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function (node) {
+                    if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                    const parent = node.parentElement;
+                    if (!parent) return NodeFilter.FILTER_REJECT;
+                    const tag = parent.tagName;
+                    if (["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "OPTION"].includes(tag)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const nodes = [];
+        let node;
+        while ((node = walker.nextNode())) nodes.push(node);
+        nodes.forEach(translateTextNode);
+        translateAttributes(root);
+    }
+
+    function updateSEO() {
+        const meta = FC_META[currentLanguage];
+        document.documentElement.lang = currentLanguage;
+        document.title = meta.title;
+
+        const description = document.querySelector('meta[name="description"]');
+        if (description) description.setAttribute("content", meta.description);
+
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute("content", meta.ogTitle);
+
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        if (ogDescription) ogDescription.setAttribute("content", meta.ogDescription);
+
+        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute("content", meta.title);
+
+        const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDescription) twitterDescription.setAttribute("content", meta.description);
+    }
+
+    function restoreSpanish(root) {
+        // The original HTML is Spanish, so reload for the clean source when switching back.
+        // We preserve currency, theme and calculator state through localStorage.
+        if (currentLanguage !== "es") return;
+        window.location.reload();
+    }
+
+    function setLanguage(lang, reloadForSpanish) {
+        currentLanguage = lang === "en" ? "en" : "es";
+        localStorage.setItem(LANG_KEY, currentLanguage);
+
+        if (selector) selector.value = currentLanguage;
+
+        if (currentLanguage === "es" && reloadForSpanish) {
+            restoreSpanish(document.body);
+            return;
+        }
+
+        updateSEO();
+        translateStatic(document.body);
+    }
+
+    if (selector) {
+        selector.value = currentLanguage;
+        selector.addEventListener("change", function () {
+            setLanguage(selector.value, true);
+        });
+    }
+
+    // Translate the current page after the original FinanCalc code has finished.
+    if (currentLanguage === "en") {
+        updateSEO();
+        translateStatic(document.body);
+    }
+
+    // Calculators update existing result nodes and sometimes create content later.
+    // This observer translates those new Spanish strings automatically.
+    const observer = new MutationObserver(function (mutations) {
+        if (currentLanguage !== "en" || translating) return;
+        mutations.forEach(function (mutation) {
+            if (mutation.type === "characterData") {
+                translateTextNode(mutation.target);
+            } else if (mutation.type === "childList") {
+                mutation.addedNodes.forEach(function (added) {
+                    if (added.nodeType === Node.TEXT_NODE) {
+                        translateTextNode(added);
+                    } else if (added.nodeType === Node.ELEMENT_NODE) {
+                        translateStatic(added);
+                    }
+                });
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        subtree: true,
+        childList: true,
+        characterData: true
+    });
+
+    window.FinanCalcLanguage = {
+        get: function () { return currentLanguage; },
+        set: function (lang) { setLanguage(lang, true); }
+    };
+})();
 </script>
 
 </body>
