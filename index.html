@@ -8,9 +8,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="FinanCalc: calculadoras financieras gratuitas de inversiones, préstamos, hipotecas, ahorro, inflación y presupuesto.">
+<meta name="description" content="FinanCalc: calculadoras financieras gratuitas de inversiones, préstamos, hipotecas, ahorro, inflación, presupuesto, deudas, IVA, descuentos y patrimonio.">
 
-<meta name="keywords" content="calculadora financiera, interés compuesto, calculadora de préstamos, calculadora de hipoteca, calculadora de ahorro, inflación, presupuesto 50 30 20">
+<meta name="keywords" content="calculadora financiera, interés compuesto, calculadora de préstamos, calculadora de hipoteca, calculadora de ahorro, inflación, presupuesto 50 30 20, tarjeta de crédito, IVA, descuento, patrimonio neto">
 
 <meta name="author" content="FinanCalc">
 
@@ -36,7 +36,7 @@
   "@type": "WebSite",
   "name": "FinanCalc",
   "url": "https://financalcc.justinrodriguez696.workers.dev/",
-  "description": "Calculadoras financieras gratuitas para inversiones, préstamos, hipotecas, ahorro e inflación.",
+  "description": "Calculadoras financieras gratuitas para inversiones, préstamos, hipotecas, ahorro, inflación, deudas, impuestos y finanzas personales.",
   "inLanguage": "es"
 }
 </script>
@@ -2836,6 +2836,242 @@ body.modo-oscuro-activo .modo-oscuro {
     }
 }
 
+
+/* ======================================================
+   MEGA CENTRO DE CALCULADORAS - SOLO INDEX
+====================================================== */
+
+.mega-seccion {
+    margin-top: 5px;
+}
+
+.mega-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 30px;
+}
+
+.mega-intro h2 {
+    color: var(--verde);
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.mega-intro p {
+    color: var(--gris);
+    font-size: 15px;
+}
+
+.mega-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.mega-card {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 9px 30px rgba(22,55,38,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.mega-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--verde), var(--verde-claro));
+}
+
+.mega-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 36px rgba(22,55,38,0.11);
+    border-color: #cfe0d7;
+}
+
+.mega-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.mega-card-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 13px;
+    background: var(--verde-suave);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.mega-card-header h3 {
+    color: var(--verde);
+    font-size: 20px;
+    margin: 0 0 4px;
+}
+
+.mega-card-header p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.mega-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.mega-form .campo {
+    min-width: 0;
+}
+
+.mega-form .campo input {
+    padding: 13px;
+}
+
+.mega-form button.mega-btn {
+    grid-column: 1 / -1;
+    margin-top: 2px;
+    min-height: 48px;
+}
+
+.mega-resultados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.mega-resultados .resultado {
+    padding: 17px;
+}
+
+.mega-resultados .resultado strong {
+    font-size: 18px;
+    word-break: break-word;
+}
+
+.mega-nota {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #f8faf9;
+    border: 1px solid var(--borde);
+    color: var(--gris);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.mega-empty {
+    opacity: 0.7;
+}
+
+.mega-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 5px 0 20px;
+}
+
+.mega-categoria span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--verde);
+    background: var(--verde-suave);
+    border: 1px solid #dcefe3;
+    border-radius: 50px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mega-chip {
+    padding: 7px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--borde);
+    color: var(--gris);
+    background: white;
+    font-size: 11px;
+}
+
+body.modo-oscuro-activo .mega-card {
+    background: #142019;
+    border-color: #293a31;
+}
+
+body.modo-oscuro-activo .mega-card:hover {
+    border-color: #3a5548;
+}
+
+body.modo-oscuro-activo .mega-card-header h3,
+body.modo-oscuro-activo .mega-intro h2,
+body.modo-oscuro-activo .mega-categoria span {
+    color: #55c98a;
+}
+
+body.modo-oscuro-activo .mega-card-icon {
+    background: #173225;
+}
+
+body.modo-oscuro-activo .mega-nota,
+body.modo-oscuro-activo .mega-chip {
+    background: #101b16;
+    border-color: #293a31;
+}
+
+body.modo-oscuro-activo .mega-categoria span {
+    background: #142f23;
+    border-color: #28513d;
+}
+
+.mega-exito {
+    outline: 2px solid rgba(56,161,105,0.18);
+    outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+    .mega-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .mega-card {
+        padding: 20px 16px;
+        border-radius: 17px;
+    }
+
+    .mega-form {
+        grid-template-columns: 1fr;
+    }
+
+    .mega-form button.mega-btn {
+        grid-column: 1;
+    }
+
+    .mega-resultados {
+        grid-template-columns: 1fr;
+    }
+
+    .mega-categoria {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
 </style>
 </head>
 
@@ -2884,6 +3120,10 @@ body.modo-oscuro-activo .modo-oscuro {
 
         <a href="#presupuesto">
             50/30/20
+        </a>
+
+        <a href="#mas-calculadoras">
+            Más calculadoras
         </a>
 
         <a href="#faq">
@@ -4176,6 +4416,492 @@ body.modo-oscuro-activo .modo-oscuro {
     </div>
 
 </section>
+
+
+
+<section
+    class="calculadora mega-seccion"
+    id="mas-calculadoras"
+>
+
+    <div class="titulo-calculadora mega-intro">
+        <div class="mega-categoria">
+            <span>🧮 CENTRO DE HERRAMIENTAS</span>
+            <div class="mega-chip">12 calculadoras nuevas</div>
+        </div>
+
+        <h2>Más calculadoras financieras</h2>
+
+        <p>
+            Amplía tus cálculos con herramientas para deudas, impuestos,
+            ahorro, patrimonio, vivienda, rentabilidad y decisiones del día a día.
+        </p>
+    </div>
+
+
+    <div class="mega-grid">
+
+        <article class="mega-card" id="calc-interes-simple">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">📐</div>
+                <div>
+                    <h3>Interés simple</h3>
+                    <p>Calcula intereses cuando la ganancia no se reinvierte.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="simpleCapital">Capital inicial</label>
+                    <input id="simpleCapital" type="number" min="0" step="0.01" placeholder="10000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="simpleTasa">Tasa anual (%)</label>
+                    <input id="simpleTasa" type="number" min="0" step="0.01" placeholder="8" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="simpleAnos">Tiempo (años)</label>
+                    <input id="simpleAnos" type="number" min="0.01" step="0.01" placeholder="3" inputmode="decimal">
+                </div>
+
+                <button id="calcularInteresSimple" class="mega-btn" type="button">Calcular interés →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Interés generado</span><strong id="simpleInteres">—</strong></div>
+                <div class="resultado"><span>Monto final</span><strong id="simpleTotal">—</strong></div>
+                <div class="resultado"><span>Rendimiento</span><strong id="simpleRendimiento">—</strong></div>
+                <div class="resultado"><span>Años</span><strong id="simpleTiempo">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-tarjeta">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">💳</div>
+                <div>
+                    <h3>Pago de tarjeta de crédito</h3>
+                    <p>Estima cuánto tardarías en liquidar una deuda con un pago fijo.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="tarjetaSaldo">Saldo actual</label>
+                    <input id="tarjetaSaldo" type="number" min="0" step="0.01" placeholder="50000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="tarjetaTasa">Interés anual (%)</label>
+                    <input id="tarjetaTasa" type="number" min="0" step="0.01" placeholder="30" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="tarjetaPago">Pago mensual</label>
+                    <input id="tarjetaPago" type="number" min="0" step="0.01" placeholder="3000" inputmode="decimal">
+                </div>
+
+                <button id="calcularTarjeta" class="mega-btn" type="button">Calcular deuda →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Tiempo estimado</span><strong id="tarjetaTiempo">—</strong></div>
+                <div class="resultado"><span>Total pagado</span><strong id="tarjetaTotal">—</strong></div>
+                <div class="resultado"><span>Intereses</span><strong id="tarjetaInteres">—</strong></div>
+                <div class="resultado"><span>Pago usado</span><strong id="tarjetaPagoResultado">—</strong></div>
+            </div>
+
+            <div class="mega-nota">
+                Estimación matemática: una tarjeta real puede incluir comisiones, seguros, impuestos,
+                pagos mínimos variables y otras condiciones.
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-iva">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🧾</div>
+                <div>
+                    <h3>IVA</h3>
+                    <p>Obtén el impuesto y el total a pagar desde un precio antes de IVA.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="ivaBase">Precio antes de IVA</label>
+                    <input id="ivaBase" type="number" min="0" step="0.01" placeholder="10000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="ivaTasa">IVA (%)</label>
+                    <input id="ivaTasa" type="number" min="0" step="0.01" value="13" inputmode="decimal">
+                </div>
+
+                <button id="calcularIVA" class="mega-btn" type="button">Calcular IVA →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>IVA</span><strong id="ivaMonto">—</strong></div>
+                <div class="resultado"><span>Total con IVA</span><strong id="ivaTotal">—</strong></div>
+                <div class="resultado"><span>Precio base</span><strong id="ivaBaseResultado">—</strong></div>
+                <div class="resultado"><span>Tasa aplicada</span><strong id="ivaTasaResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-descuento">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🏷️</div>
+                <div>
+                    <h3>Descuento</h3>
+                    <p>Calcula cuánto ahorras y cuál es el precio final de una oferta.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="descuentoPrecio">Precio original</label>
+                    <input id="descuentoPrecio" type="number" min="0" step="0.01" placeholder="25000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="descuentoTasa">Descuento (%)</label>
+                    <input id="descuentoTasa" type="number" min="0" max="100" step="0.01" placeholder="20" inputmode="decimal">
+                </div>
+
+                <button id="calcularDescuento" class="mega-btn" type="button">Calcular descuento →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Ahorras</span><strong id="descuentoAhorro">—</strong></div>
+                <div class="resultado"><span>Precio final</span><strong id="descuentoFinal">—</strong></div>
+                <div class="resultado"><span>Precio original</span><strong id="descuentoOriginal">—</strong></div>
+                <div class="resultado"><span>Descuento</span><strong id="descuentoResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-tasa-efectiva">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🔄</div>
+                <div>
+                    <h3>Conversión de tasa</h3>
+                    <p>Convierte una tasa nominal anual según su frecuencia de capitalización.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="tasaNominal">Tasa nominal anual (%)</label>
+                    <input id="tasaNominal" type="number" min="0" step="0.01" placeholder="12" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="tasaPeriodos">Capitalizaciones al año</label>
+                    <input id="tasaPeriodos" type="number" min="1" step="1" placeholder="12" inputmode="numeric">
+                </div>
+
+                <button id="calcularTasaEfectiva" class="mega-btn" type="button">Convertir tasa →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Tasa efectiva anual</span><strong id="tasaEfectivaAnual">—</strong></div>
+                <div class="resultado"><span>Tasa mensual equivalente</span><strong id="tasaEfectivaMensual">—</strong></div>
+                <div class="resultado"><span>Tasa nominal</span><strong id="tasaNominalResultado">—</strong></div>
+                <div class="resultado"><span>Capitalizaciones</span><strong id="tasaPeriodosResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-valor-futuro">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🚀</div>
+                <div>
+                    <h3>Valor futuro</h3>
+                    <p>Estima cuánto valdrá hoy una cantidad después de varios años con una tasa.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="futuroCapital">Cantidad actual</label>
+                    <input id="futuroCapital" type="number" min="0" step="0.01" placeholder="10000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="futuroTasa">Tasa anual (%)</label>
+                    <input id="futuroTasa" type="number" min="0" step="0.01" placeholder="7" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="futuroAnos">Tiempo (años)</label>
+                    <input id="futuroAnos" type="number" min="0.01" step="0.01" placeholder="10" inputmode="decimal">
+                </div>
+
+                <button id="calcularValorFuturo" class="mega-btn" type="button">Calcular valor futuro →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Valor futuro</span><strong id="futuroResultado">—</strong></div>
+                <div class="resultado"><span>Ganancia</span><strong id="futuroGanancia">—</strong></div>
+                <div class="resultado"><span>Factor de crecimiento</span><strong id="futuroFactor">—</strong></div>
+                <div class="resultado"><span>Tiempo</span><strong id="futuroTiempo">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-rentabilidad">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">📈</div>
+                <div>
+                    <h3>Rentabilidad de inversión</h3>
+                    <p>Mide la ganancia, el ROI y una tasa anual aproximada de crecimiento.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="rentabilidadInversion">Monto invertido</label>
+                    <input id="rentabilidadInversion" type="number" min="0.01" step="0.01" placeholder="10000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="rentabilidadFinal">Valor final</label>
+                    <input id="rentabilidadFinal" type="number" min="0" step="0.01" placeholder="13500" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="rentabilidadAnos">Tiempo (años)</label>
+                    <input id="rentabilidadAnos" type="number" min="0.01" step="0.01" placeholder="3" inputmode="decimal">
+                </div>
+
+                <button id="calcularRentabilidad" class="mega-btn" type="button">Calcular rentabilidad →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Ganancia / pérdida</span><strong id="rentabilidadGanancia">—</strong></div>
+                <div class="resultado"><span>ROI total</span><strong id="rentabilidadROI">—</strong></div>
+                <div class="resultado"><span>Tasa anual aprox.</span><strong id="rentabilidadAnual">—</strong></div>
+                <div class="resultado"><span>Capital inicial</span><strong id="rentabilidadInicialResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-emergencia">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🛟</div>
+                <div>
+                    <h3>Fondo de emergencia</h3>
+                    <p>Calcula cuánto dinero necesitas según tus gastos esenciales y meses objetivo.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="emergenciaGastos">Gastos esenciales mensuales</label>
+                    <input id="emergenciaGastos" type="number" min="0" step="0.01" placeholder="30000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="emergenciaMeses">Meses de cobertura</label>
+                    <input id="emergenciaMeses" type="number" min="1" step="1" placeholder="6" inputmode="numeric">
+                </div>
+
+                <div class="campo">
+                    <label for="emergenciaActual">Ahorro actual</label>
+                    <input id="emergenciaActual" type="number" min="0" step="0.01" placeholder="50000" inputmode="decimal">
+                </div>
+
+                <button id="calcularEmergencia" class="mega-btn" type="button">Calcular fondo →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Fondo objetivo</span><strong id="emergenciaObjetivo">—</strong></div>
+                <div class="resultado"><span>Te falta</span><strong id="emergenciaFalta">—</strong></div>
+                <div class="resultado"><span>Cubierto actualmente</span><strong id="emergenciaCubierto">—</strong></div>
+                <div class="resultado"><span>Meses objetivo</span><strong id="emergenciaMesesResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-ahorro-necesario">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🎯</div>
+                <div>
+                    <h3>Ahorro mensual necesario</h3>
+                    <p>Descubre cuánto aportar cada mes para alcanzar una meta en un plazo definido.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="necesarioMeta">Meta de ahorro</label>
+                    <input id="necesarioMeta" type="number" min="0" step="0.01" placeholder="500000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="necesarioInicial">Ahorro inicial</label>
+                    <input id="necesarioInicial" type="number" min="0" step="0.01" placeholder="50000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="necesarioTasa">Rendimiento anual (%)</label>
+                    <input id="necesarioTasa" type="number" min="0" step="0.01" placeholder="6" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="necesarioAnos">Tiempo (años)</label>
+                    <input id="necesarioAnos" type="number" min="0.01" step="0.01" placeholder="5" inputmode="decimal">
+                </div>
+
+                <button id="calcularAhorroNecesario" class="mega-btn" type="button">Calcular aporte →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Aporte mensual</span><strong id="necesarioMensual">—</strong></div>
+                <div class="resultado"><span>Total aportado</span><strong id="necesarioAportado">—</strong></div>
+                <div class="resultado"><span>Intereses estimados</span><strong id="necesarioIntereses">—</strong></div>
+                <div class="resultado"><span>Meta</span><strong id="necesarioMetaResultado">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-patrimonio">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🏦</div>
+                <div>
+                    <h3>Patrimonio neto</h3>
+                    <p>Compara tus activos con tus deudas para conocer tu patrimonio neto.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="patrimonioActivos">Activos totales</label>
+                    <input id="patrimonioActivos" type="number" min="0" step="0.01" placeholder="500000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="patrimonioDeudas">Deudas totales</label>
+                    <input id="patrimonioDeudas" type="number" min="0" step="0.01" placeholder="200000" inputmode="decimal">
+                </div>
+
+                <button id="calcularPatrimonio" class="mega-btn" type="button">Calcular patrimonio →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Patrimonio neto</span><strong id="patrimonioNeto">—</strong></div>
+                <div class="resultado"><span>Deudas</span><strong id="patrimonioDeudasResultado">—</strong></div>
+                <div class="resultado"><span>Activos</span><strong id="patrimonioActivosResultado">—</strong></div>
+                <div class="resultado"><span>Deuda / activos</span><strong id="patrimonioRatio">—</strong></div>
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-vivienda">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">🏠</div>
+                <div>
+                    <h3>Capacidad de compra de vivienda</h3>
+                    <p>Estima un precio máximo según ingreso, deudas, cuota objetivo, tasa y prima.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="viviendaIngreso">Ingreso mensual</label>
+                    <input id="viviendaIngreso" type="number" min="0" step="0.01" placeholder="80000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="viviendaDeuda">Deudas mensuales actuales</label>
+                    <input id="viviendaDeuda" type="number" min="0" step="0.01" placeholder="10000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="viviendaCuota">Máx. para vivienda (%)</label>
+                    <input id="viviendaCuota" type="number" min="0" max="100" step="0.01" value="30" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="viviendaTasa">Tasa anual (%)</label>
+                    <input id="viviendaTasa" type="number" min="0" step="0.01" placeholder="8" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="viviendaAnos">Plazo (años)</label>
+                    <input id="viviendaAnos" type="number" min="1" step="1" placeholder="25" inputmode="numeric">
+                </div>
+
+                <div class="campo">
+                    <label for="viviendaPrima">Prima / enganche (%)</label>
+                    <input id="viviendaPrima" type="number" min="0" max="99.9" step="0.1" value="20" inputmode="decimal">
+                </div>
+
+                <button id="calcularVivienda" class="mega-btn" type="button">Estimar capacidad →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Cuota de vivienda estimada</span><strong id="viviendaPago">—</strong></div>
+                <div class="resultado"><span>Préstamo máximo estimado</span><strong id="viviendaPrestamo">—</strong></div>
+                <div class="resultado"><span>Precio de vivienda estimado</span><strong id="viviendaPrecio">—</strong></div>
+                <div class="resultado"><span>Prima estimada</span><strong id="viviendaPrimaResultado">—</strong></div>
+            </div>
+
+            <div class="mega-nota">
+                No representa una preaprobación bancaria. El resultado no incluye necesariamente seguros,
+                impuestos, mantenimiento, comisiones u otros costos de vivienda.
+            </div>
+        </article>
+
+
+        <article class="mega-card" id="calc-salario-hora">
+            <div class="mega-card-header">
+                <div class="mega-card-icon">⏱️</div>
+                <div>
+                    <h3>Salario por hora</h3>
+                    <p>Convierte un salario mensual en una referencia aproximada por hora y por año.</p>
+                </div>
+            </div>
+
+            <div class="mega-form">
+                <div class="campo">
+                    <label for="salarioMensual">Salario mensual</label>
+                    <input id="salarioMensual" type="number" min="0" step="0.01" placeholder="500000" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="salarioHoras">Horas por semana</label>
+                    <input id="salarioHoras" type="number" min="0.1" step="0.1" value="48" inputmode="decimal">
+                </div>
+
+                <div class="campo">
+                    <label for="salarioSemanas">Semanas trabajadas al año</label>
+                    <input id="salarioSemanas" type="number" min="1" max="52" step="1" value="52" inputmode="numeric">
+                </div>
+
+                <button id="calcularSalarioHora" class="mega-btn" type="button">Calcular salario →</button>
+            </div>
+
+            <div class="mega-resultados">
+                <div class="resultado"><span>Salario por hora</span><strong id="salarioHoraResultado">—</strong></div>
+                <div class="resultado"><span>Salario anual</span><strong id="salarioAnualResultado">—</strong></div>
+                <div class="resultado"><span>Horas al año</span><strong id="salarioHorasAnuales">—</strong></div>
+                <div class="resultado"><span>Horas por semana</span><strong id="salarioHorasSemanaResultado">—</strong></div>
+            </div>
+
+            <div class="mega-nota">
+                Es una equivalencia matemática basada en los datos introducidos y no calcula deducciones,
+                horas extra, vacaciones, bonos ni impuestos.
+            </div>
+        </article>
+
+    </div>
+</section>
+
 
 
 <section
@@ -7038,6 +7764,555 @@ rechazarCookies.addEventListener(
 
     }
 );
+
+
+/* ======================================================
+   MEGA CALCULADORAS - FUNCIONES ADICIONALES
+   Todo queda dentro de este index.html.
+====================================================== */
+
+const megaIdsMonetarios = [
+    "simpleCapital",
+    "tarjetaSaldo",
+    "tarjetaPago",
+    "ivaBase",
+    "descuentoPrecio",
+    "futuroCapital",
+    "rentabilidadInversion",
+    "rentabilidadFinal",
+    "emergenciaGastos",
+    "emergenciaActual",
+    "necesarioMeta",
+    "necesarioInicial",
+    "patrimonioActivos",
+    "patrimonioDeudas",
+    "viviendaIngreso",
+    "viviendaDeuda",
+    "salarioMensual"
+];
+
+megaIdsMonetarios.forEach(function(id) {
+    if (Array.isArray(camposMonetarios) && !camposMonetarios.includes(id)) {
+        camposMonetarios.push(id);
+    }
+});
+
+function megaNumero(id) {
+    const campo = document.getElementById(id);
+    return campo ? Number(campo.value) : NaN;
+}
+
+function megaTexto(id, valor) {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+        elemento.textContent = valor;
+    }
+}
+
+function megaDinero(valor) {
+    return formatoDinero(Number.isFinite(Number(valor)) ? Number(valor) : 0);
+}
+
+function megaPorcentaje(valor) {
+    return Number(valor).toFixed(2) + "%";
+}
+
+function megaValido(...valores) {
+    return valores.every(function(valor) {
+        return Number.isFinite(Number(valor));
+    });
+}
+
+function megaRegistrar(nombre, calculadora) {
+    if (typeof window.gtag === "function") {
+        window.gtag("event", "calculadora_usada", {
+            calculadora: calculadora,
+            categoria: "mega_calculadoras"
+        });
+    }
+}
+
+function megaMarcar(btnId) {
+    const boton = document.getElementById(btnId);
+    if (!boton) return;
+    boton.classList.remove("mega-exito");
+    void boton.offsetWidth;
+    boton.classList.add("mega-exito");
+    setTimeout(function() {
+        boton.classList.remove("mega-exito");
+    }, 700);
+}
+
+/* INTERÉS SIMPLE */
+function calcularInteresSimple() {
+    const capital = megaNumero("simpleCapital");
+    const tasa = megaNumero("simpleTasa");
+    const anos = megaNumero("simpleAnos");
+
+    if (!megaValido(capital, tasa, anos) || capital < 0 || tasa < 0 || anos <= 0) {
+        alert("Introduce valores válidos para interés simple.");
+        return;
+    }
+
+    const interes = capital * (tasa / 100) * anos;
+    const total = capital + interes;
+
+    megaTexto("simpleInteres", megaDinero(interes));
+    megaTexto("simpleTotal", megaDinero(total));
+    megaTexto("simpleRendimiento", megaPorcentaje(capital > 0 ? interes / capital * 100 : 0));
+    megaTexto("simpleTiempo", anos.toFixed(2) + " años");
+
+    megaRegistrar("click", "interes_simple");
+    megaMarcar("calcularInteresSimple");
+}
+
+/* TARJETA DE CRÉDITO */
+function calcularTarjeta() {
+    const saldo = megaNumero("tarjetaSaldo");
+    const tasa = megaNumero("tarjetaTasa");
+    const pago = megaNumero("tarjetaPago");
+
+    if (!megaValido(saldo, tasa, pago) || saldo <= 0 || tasa < 0 || pago <= 0) {
+        alert("Introduce un saldo, una tasa y un pago mensual válidos.");
+        return;
+    }
+
+    const mensual = tasa / 100 / 12;
+
+    if (mensual > 0 && pago <= saldo * mensual) {
+        alert("El pago mensual no cubre ni los intereses del primer mes. Aumenta el pago.");
+        return;
+    }
+
+    let restante = saldo;
+    let totalPagado = 0;
+    let meses = 0;
+    const limite = 1200;
+
+    while (restante > 0.005 && meses < limite) {
+        const interes = restante * mensual;
+        const pagoReal = Math.min(pago, restante + interes);
+        const capital = pagoReal - interes;
+
+        totalPagado += pagoReal;
+        restante -= capital;
+        meses++;
+    }
+
+    if (meses >= limite && restante > 0.01) {
+        alert("La deuda requiere un plazo demasiado largo con ese pago.");
+        return;
+    }
+
+    const intereses = Math.max(totalPagado - saldo, 0);
+    const anos = Math.floor(meses / 12);
+    const mesesRestantes = meses % 12;
+    const tiempo = (anos ? anos + (anos === 1 ? " año" : " años") : "") +
+        (anos && mesesRestantes ? " y " : "") +
+        (mesesRestantes ? mesesRestantes + (mesesRestantes === 1 ? " mes" : " meses") : "");
+
+    megaTexto("tarjetaTiempo", tiempo || "Menos de 1 mes");
+    megaTexto("tarjetaTotal", megaDinero(totalPagado));
+    megaTexto("tarjetaInteres", megaDinero(intereses));
+    megaTexto("tarjetaPagoResultado", megaDinero(pago));
+
+    megaRegistrar("click", "tarjeta_credito");
+    megaMarcar("calcularTarjeta");
+}
+
+/* IVA */
+function calcularIVA() {
+    const base = megaNumero("ivaBase");
+    const tasa = megaNumero("ivaTasa");
+
+    if (!megaValido(base, tasa) || base < 0 || tasa < 0) {
+        alert("Introduce valores válidos para IVA.");
+        return;
+    }
+
+    const iva = base * tasa / 100;
+    const total = base + iva;
+
+    megaTexto("ivaMonto", megaDinero(iva));
+    megaTexto("ivaTotal", megaDinero(total));
+    megaTexto("ivaBaseResultado", megaDinero(base));
+    megaTexto("ivaTasaResultado", megaPorcentaje(tasa));
+
+    megaRegistrar("click", "iva");
+    megaMarcar("calcularIVA");
+}
+
+/* DESCUENTO */
+function calcularDescuento() {
+    const precio = megaNumero("descuentoPrecio");
+    const tasa = megaNumero("descuentoTasa");
+
+    if (!megaValido(precio, tasa) || precio < 0 || tasa < 0 || tasa > 100) {
+        alert("Introduce un precio y un porcentaje de descuento válidos.");
+        return;
+    }
+
+    const ahorro = precio * tasa / 100;
+    const final = precio - ahorro;
+
+    megaTexto("descuentoAhorro", megaDinero(ahorro));
+    megaTexto("descuentoFinal", megaDinero(final));
+    megaTexto("descuentoOriginal", megaDinero(precio));
+    megaTexto("descuentoResultado", megaPorcentaje(tasa));
+
+    megaRegistrar("click", "descuento");
+    megaMarcar("calcularDescuento");
+}
+
+/* CONVERSIÓN DE TASA */
+function calcularTasaEfectiva() {
+    const nominal = megaNumero("tasaNominal");
+    const periodos = megaNumero("tasaPeriodos");
+
+    if (!megaValido(nominal, periodos) || nominal < 0 || periodos < 1) {
+        alert("Introduce una tasa y frecuencia válidas.");
+        return;
+    }
+
+    const r = nominal / 100;
+    const efectiva = Math.pow(1 + r / periodos, periodos) - 1;
+    const mensual = Math.pow(1 + efectiva, 1 / 12) - 1;
+
+    megaTexto("tasaEfectivaAnual", megaPorcentaje(efectiva * 100));
+    megaTexto("tasaEfectivaMensual", megaPorcentaje(mensual * 100));
+    megaTexto("tasaNominalResultado", megaPorcentaje(nominal));
+    megaTexto("tasaPeriodosResultado", Math.round(periodos) + " / año");
+
+    megaRegistrar("click", "conversion_tasa");
+    megaMarcar("calcularTasaEfectiva");
+}
+
+/* VALOR FUTURO */
+function calcularValorFuturo() {
+    const capital = megaNumero("futuroCapital");
+    const tasa = megaNumero("futuroTasa");
+    const anos = megaNumero("futuroAnos");
+
+    if (!megaValido(capital, tasa, anos) || capital < 0 || tasa < 0 || anos <= 0) {
+        alert("Introduce valores válidos para valor futuro.");
+        return;
+    }
+
+    const factor = Math.pow(1 + tasa / 100, anos);
+    const futuro = capital * factor;
+    const ganancia = futuro - capital;
+
+    megaTexto("futuroResultado", megaDinero(futuro));
+    megaTexto("futuroGanancia", megaDinero(ganancia));
+    megaTexto("futuroFactor", factor.toFixed(3) + "x");
+    megaTexto("futuroTiempo", anos.toFixed(2) + " años");
+
+    megaRegistrar("click", "valor_futuro");
+    megaMarcar("calcularValorFuturo");
+}
+
+/* RENTABILIDAD */
+function calcularRentabilidad() {
+    const inicial = megaNumero("rentabilidadInversion");
+    const final = megaNumero("rentabilidadFinal");
+    const anos = megaNumero("rentabilidadAnos");
+
+    if (!megaValido(inicial, final, anos) || inicial <= 0 || final < 0 || anos <= 0) {
+        alert("Introduce valores válidos para rentabilidad.");
+        return;
+    }
+
+    const ganancia = final - inicial;
+    const roi = ganancia / inicial * 100;
+    const anual = final > 0 ? (Math.pow(final / inicial, 1 / anos) - 1) * 100 : -100;
+
+    megaTexto("rentabilidadGanancia", megaDinero(ganancia));
+    megaTexto("rentabilidadROI", megaPorcentaje(roi));
+    megaTexto("rentabilidadAnual", megaPorcentaje(anual));
+    megaTexto("rentabilidadInicialResultado", megaDinero(inicial));
+
+    megaRegistrar("click", "rentabilidad");
+    megaMarcar("calcularRentabilidad");
+}
+
+/* FONDO DE EMERGENCIA */
+function calcularEmergencia() {
+    const gastos = megaNumero("emergenciaGastos");
+    const meses = megaNumero("emergenciaMeses");
+    const actual = megaNumero("emergenciaActual");
+
+    if (!megaValido(gastos, meses, actual) || gastos < 0 || meses <= 0 || actual < 0) {
+        alert("Introduce valores válidos para el fondo de emergencia.");
+        return;
+    }
+
+    const objetivo = gastos * meses;
+    const falta = Math.max(objetivo - actual, 0);
+    const cubierto = gastos > 0 ? Math.min(actual / gastos, meses) : 0;
+
+    megaTexto("emergenciaObjetivo", megaDinero(objetivo));
+    megaTexto("emergenciaFalta", megaDinero(falta));
+    megaTexto("emergenciaCubierto", cubierto.toFixed(1) + " meses");
+    megaTexto("emergenciaMesesResultado", meses + (meses === 1 ? " mes" : " meses"));
+
+    megaRegistrar("click", "fondo_emergencia");
+    megaMarcar("calcularEmergencia");
+}
+
+/* AHORRO NECESARIO */
+function calcularAhorroNecesario() {
+    const meta = megaNumero("necesarioMeta");
+    const inicial = megaNumero("necesarioInicial");
+    const tasa = megaNumero("necesarioTasa");
+    const anos = megaNumero("necesarioAnos");
+
+    if (!megaValido(meta, inicial, tasa, anos) || meta < 0 || inicial < 0 || tasa < 0 || anos <= 0) {
+        alert("Introduce valores válidos para la meta de ahorro.");
+        return;
+    }
+
+    const meses = Math.round(anos * 12);
+    const r = tasa / 100 / 12;
+    const valorInicial = inicial * Math.pow(1 + r, meses);
+    let mensual;
+
+    if (r === 0) {
+        mensual = Math.max((meta - inicial) / meses, 0);
+    } else {
+        mensual = Math.max(
+            (meta - valorInicial) * r / (Math.pow(1 + r, meses) - 1),
+            0
+        );
+    }
+
+    const aportado = inicial + mensual * meses;
+    const futuroInicial = inicial * Math.pow(1 + r, meses);
+    const intereses = Math.max(meta - aportado, 0);
+
+    megaTexto("necesarioMensual", megaDinero(mensual));
+    megaTexto("necesarioAportado", megaDinero(aportado));
+    megaTexto("necesarioIntereses", megaDinero(intereses));
+    megaTexto("necesarioMetaResultado", megaDinero(meta));
+
+    megaRegistrar("click", "ahorro_mensual_necesario");
+    megaMarcar("calcularAhorroNecesario");
+}
+
+/* PATRIMONIO NETO */
+function calcularPatrimonio() {
+    const activos = megaNumero("patrimonioActivos");
+    const deudas = megaNumero("patrimonioDeudas");
+
+    if (!megaValido(activos, deudas) || activos < 0 || deudas < 0) {
+        alert("Introduce valores válidos para patrimonio.");
+        return;
+    }
+
+    const neto = activos - deudas;
+    const ratio = activos > 0 ? deudas / activos * 100 : 0;
+
+    megaTexto("patrimonioNeto", megaDinero(neto));
+    megaTexto("patrimonioDeudasResultado", megaDinero(deudas));
+    megaTexto("patrimonioActivosResultado", megaDinero(activos));
+    megaTexto("patrimonioRatio", megaPorcentaje(ratio));
+
+    megaRegistrar("click", "patrimonio_neto");
+    megaMarcar("calcularPatrimonio");
+}
+
+/* CAPACIDAD DE VIVIENDA */
+function calcularVivienda() {
+    const ingreso = megaNumero("viviendaIngreso");
+    const deuda = megaNumero("viviendaDeuda");
+    const cuotaPct = megaNumero("viviendaCuota");
+    const tasa = megaNumero("viviendaTasa");
+    const anos = megaNumero("viviendaAnos");
+    const primaPct = megaNumero("viviendaPrima");
+
+    if (
+        !megaValido(ingreso, deuda, cuotaPct, tasa, anos, primaPct) ||
+        ingreso <= 0 ||
+        deuda < 0 ||
+        cuotaPct <= 0 ||
+        cuotaPct > 100 ||
+        tasa < 0 ||
+        anos <= 0 ||
+        primaPct < 0 ||
+        primaPct >= 100
+    ) {
+        alert("Introduce valores válidos para capacidad de vivienda.");
+        return;
+    }
+
+    const cuotaMaxima = Math.max(ingreso * cuotaPct / 100 - deuda, 0);
+    const meses = Math.round(anos * 12);
+    const r = tasa / 100 / 12;
+
+    let prestamo = 0;
+
+    if (cuotaMaxima > 0) {
+        if (r === 0) {
+            prestamo = cuotaMaxima * meses;
+        } else {
+            const factor = Math.pow(1 + r, meses);
+            prestamo = cuotaMaxima * (factor - 1) / (r * factor);
+        }
+    }
+
+    const precio = prestamo / (1 - primaPct / 100);
+    const prima = precio * primaPct / 100;
+
+    megaTexto("viviendaPago", megaDinero(cuotaMaxima));
+    megaTexto("viviendaPrestamo", megaDinero(prestamo));
+    megaTexto("viviendaPrecio", megaDinero(precio));
+    megaTexto("viviendaPrimaResultado", megaDinero(prima));
+
+    megaRegistrar("click", "capacidad_vivienda");
+    megaMarcar("calcularVivienda");
+}
+
+/* SALARIO POR HORA */
+function calcularSalarioHora() {
+    const mensual = megaNumero("salarioMensual");
+    const horasSemana = megaNumero("salarioHoras");
+    const semanas = megaNumero("salarioSemanas");
+
+    if (!megaValido(mensual, horasSemana, semanas) || mensual < 0 || horasSemana <= 0 || semanas <= 0) {
+        alert("Introduce valores válidos para el salario.");
+        return;
+    }
+
+    const anual = mensual * 12;
+    const horasAnuales = horasSemana * semanas;
+    const hora = horasAnuales > 0 ? anual / horasAnuales : 0;
+
+    megaTexto("salarioHoraResultado", megaDinero(hora));
+    megaTexto("salarioAnualResultado", megaDinero(anual));
+    megaTexto("salarioHorasAnuales", horasAnuales.toFixed(1));
+    megaTexto("salarioHorasSemanaResultado", horasSemana.toFixed(1));
+
+    megaRegistrar("click", "salario_por_hora");
+    megaMarcar("calcularSalarioHora");
+}
+
+/* REGISTRO DE BOTONES */
+const megaCalculadoras = {
+    calcularInteresSimple: calcularInteresSimple,
+    calcularTarjeta: calcularTarjeta,
+    calcularIVA: calcularIVA,
+    calcularDescuento: calcularDescuento,
+    calcularTasaEfectiva: calcularTasaEfectiva,
+    calcularValorFuturo: calcularValorFuturo,
+    calcularRentabilidad: calcularRentabilidad,
+    calcularEmergencia: calcularEmergencia,
+    calcularAhorroNecesario: calcularAhorroNecesario,
+    calcularPatrimonio: calcularPatrimonio,
+    calcularVivienda: calcularVivienda,
+    calcularSalarioHora: calcularSalarioHora
+};
+
+Object.keys(megaCalculadoras).forEach(function(btnId) {
+    const boton = document.getElementById(btnId);
+    if (boton) {
+        boton.addEventListener("click", megaCalculadoras[btnId]);
+    }
+});
+
+/* ENTER EN LAS NUEVAS CALCULADORAS */
+document.querySelectorAll("#mas-calculadoras input").forEach(function(input) {
+    input.addEventListener("keydown", function(event) {
+        if (event.key !== "Enter") {
+            return;
+        }
+
+        const tarjeta = input.closest(".mega-card");
+        if (!tarjeta) {
+            return;
+        }
+
+        const boton = tarjeta.querySelector("button.mega-btn");
+        if (boton) {
+            boton.click();
+        }
+    });
+});
+
+/* RECÁLCULO AUTOMÁTICO DE LAS NUEVAS HERRAMIENTAS
+   al cambiar moneda, esperando a que finalice la conversión existente. */
+function recalcularMegaCalculadoras() {
+    const pares = [
+        ["simpleCapital", "simpleTasa", "simpleAnos", calcularInteresSimple],
+        ["tarjetaSaldo", "tarjetaTasa", "tarjetaPago", calcularTarjeta],
+        ["ivaBase", "ivaTasa", calcularIVA],
+        ["descuentoPrecio", "descuentoTasa", calcularDescuento],
+        ["tasaNominal", "tasaPeriodos", calcularTasaEfectiva],
+        ["futuroCapital", "futuroTasa", "futuroAnos", calcularValorFuturo],
+        ["rentabilidadInversion", "rentabilidadFinal", "rentabilidadAnos", calcularRentabilidad],
+        ["emergenciaGastos", "emergenciaMeses", "emergenciaActual", calcularEmergencia],
+        ["necesarioMeta", "necesarioInicial", "necesarioTasa", "necesarioAnos", calcularAhorroNecesario],
+        ["patrimonioActivos", "patrimonioDeudas", calcularPatrimonio],
+        ["viviendaIngreso", "viviendaDeuda", "viviendaCuota", "viviendaTasa", "viviendaAnos", "viviendaPrima", calcularVivienda],
+        ["salarioMensual", "salarioHoras", "salarioSemanas", calcularSalarioHora]
+    ];
+
+    pares.forEach(function(par) {
+        const fn = par[par.length - 1];
+        const ids = par.slice(0, -1);
+        const campos = ids.map(function(id) {
+            return document.getElementById(id);
+        });
+
+        if (campos.length && campos.every(function(campo) {
+            return campo && campo.value !== "";
+        })) {
+            fn();
+        }
+    });
+}
+
+if (typeof moneda !== "undefined") {
+    moneda.addEventListener("change", function() {
+        let intentos = 0;
+
+        function esperarConversion() {
+            if (!moneda.disabled) {
+                recalcularMegaCalculadoras();
+                return;
+            }
+
+            intentos++;
+
+            if (intentos < 120) {
+                setTimeout(esperarConversion, 50);
+            }
+        }
+
+        esperarConversion();
+    });
+}
+
+/* ATAJOS Y SEGUIMIENTO DE LAS CALCULADORAS EXISTENTES */
+[
+    ["calcular", "interes_compuesto"],
+    ["calcularPrestamo", "prestamo"],
+    ["calcularHipoteca", "hipoteca"],
+    ["calcularAhorro", "meta_ahorro"],
+    ["calcularInflacion", "inflacion"],
+    ["calcularPresupuesto", "presupuesto_50_30_20"]
+].forEach(function(par) {
+    const boton = document.getElementById(par[0]);
+
+    if (boton) {
+        boton.addEventListener("click", function() {
+            if (typeof window.gtag === "function") {
+                window.gtag("event", "calculadora_usada", {
+                    calculadora: par[1],
+                    categoria: "calculadoras_principales"
+                });
+            }
+        });
+    }
+});
 
 </script>
 
